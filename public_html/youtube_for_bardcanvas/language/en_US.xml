@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>YouTube player builder</display_name>
+    <icon>fa-youtube</icon>
+    <description>
+        Adds a dialog on TinyMCE that converts YouTube links in player placeholders
+        and replaces them with an actual player on the frontend.
+    </description>
+
+    <tinymce_strings>
+        <title>Embed YouTube link</title>
+        <caption>Paste YouTube video URL</caption>
+        <invalid_link>The link you entered is invalid</invalid_link>
+    </tinymce_strings>
+
+</language>

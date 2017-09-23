@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <info>
+        <full_name>English/United States</full_name>
+        <locale>en_US</locale>
+        <iso>en</iso>
+        <country>US</country>
+    </info>
+    
+    <bootstrap>
+        <errors>
+            <language_file_dont_exist>Language file for "{$language}" in module "{$module_name}" doesn't exist!</language_file_dont_exist>
+        </errors>
+    </bootstrap>
+    
+    <powered_by><![CDATA[ is powered by <a href="https://www.bardcanvas.com" target="_blank">BardCanvas v{$version}</a> ]]></powered_by>
+    
+    <admin>
+        <bar_title>Engine Version:</bar_title>
+    </admin>
+    
+    <record_nav>
+        <page>Page</page>
+        <of>of</of>
+        <records>entries</records>
+        <entries>entries</entries>
+        <search>Search:</search>
+        <filter>Filter:</filter>
+        <show>Show:</show>
+        <recs_per_page>Recs/page</recs_per_page>
+        <show_all>All</show_all>
+        <actions>Actions</actions>
+        <buttons>
+            <first>First</first>
+            <previous>Previous</previous>
+            <next>Next</next>
+            <last>Last</last>
+            <apply>Apply</apply>
+            <reset>Reset</reset>
+        </buttons>
+        <no_records_found>There are no records matching the specified search pattern</no_records_found>
+        <empty_table_add_records>Table is empty. Please add a record.</empty_table_add_records>
+    </record_nav>
+    
+    <errors>
+        <page_requires_login>Error: this page requires you to have an opened session. Please login.</page_requires_login>
+        <account_is_locked>Error: your account is currently locked. Please contact us for further information.</account_is_locked>
+        <access_denied>Access denied</access_denied>
+        <invalid_call>You've called this script the wrong way</invalid_call>
+        <recaptcha_not_configured>ReCaptcha isn't configured! Please notify the webmaster that a ReCaptcha keypair must be added on the Website Settings Module.</recaptcha_not_configured>
+        <webmaster_address_empty>The Webmaster address is empty. No emails can be delivered to the staff.</webmaster_address_empty>
+        <ajax>
+            <title>Failure on a background call</title>
+            <info><![CDATA[
+                A failure has been detected on a call to a document in the background:
+                 
+                URL:      {$url}
+                Response: {$response}
+                 
+                Please copy this message or capture the screen and send it to
+                the tech support staff with a description of what you were doing
+                so they can fix the issue as soon as possible.
+            ]]></info>
+        </ajax>
+    </errors>
+    
+    <click_here_to_continue>Click here to continue...</click_here_to_continue>
+    
+    <toggle_info>Show/hide info</toggle_info>
+    
+    <wait>Please wait...</wait>
+    
+    <ip>IP</ip>
+    <segment>Segment</segment>
+    <disable>Disable</disable>
+    
+    <ok>OK</ok>
+    <save>Save</save>
+    <submit>Submit</submit>
+    <done>Done</done>
+    <cancel>Cancel</cancel>
+    <close>Close</close>
+    <none>None</none>
+    <any>Any</any>
+    <mine_m>Mine</mine_m>
+    <mine_f>Mine</mine_f>
+    <mine_sm>Mine</mine_sm>
+    <mine_sf>Mine</mine_sf>
+    <others>Others</others>
+    <all_m>All</all_m>
+    <all_f>All</all_f>
+    <yes>Yes</yes>
+    <no>No</no>
+    <off>Off</off>
+    <on>On</on>
+    <last_seen>Last seen:</last_seen>
+    <never>never</never>
+    <edit_profile>Edit profile</edit_profile>
+    <contact>
+        <contact_user>Contact {$display_name}</contact_user>
+        <pm>
+            <caption>PM</caption>
+            <title>Send a private message to the user's inbox at {$website_name}</title>
+            <send_to>Send PM to {$recipient}</send_to>
+        </pm>
+        <email>
+            <caption>E-mail</caption>
+            <title>Send an Email to the user's address</title>
+        </email>
+    </contact>
+    
+    <failed_to_create_cron_job><![CDATA[
+        The background processing job couldn't be created because of the next error:<br>
+        {$error}<br>
+        Please contact the tech support staff.
+    ]]></failed_to_create_cron_job>
+    
+    <time>
+        <today>today</today>
+        <yesterday>yesterday</yesterday>
+        <am>AM</am>
+        <pm>PM</pm>
+        <years>years</years>
+        <months>months</months>
+        <days>days</days>
+        <hours>hours</hours>
+        <minutes>minutes</minutes>
+        <seconds>seconds</seconds>
+        <ago>ago</ago>
+        <ago_prefix></ago_prefix>
+        <short>
+            <years>y</years>
+            <months>m</months>
+            <days>d</days>
+            <hours>h</hours>
+            <minutes>m</minutes>
+            <seconds>s</seconds>
+        </short>
+    </time>
+    
+    <unknown>Unknown</unknown>
+    
+    <view>View</view>
+    <lookup>Lookup</lookup>
+    <search_results>Search results</search_results>
+    <return>Return</return>
+    <refresh>Refresh</refresh>
+    <reload>Reload</reload>
+    <reload_page>Reload page</reload_page>
+    <resource_not_found>Resource not found</resource_not_found>
+    <resource_unavailable>Resource unavailable</resource_unavailable>
+    <permalink>Permalink</permalink>
+    <edit>Edit</edit>
+    <pm_author>PM to the author</pm_author>
+    <email_author>Email to the author</email_author>
+    <report_to_webmaster>Report to webmaster</report_to_webmaster>
+    <flag_as_spam>This is spam</flag_as_spam>
+    
+    <notification_deletion_errors>
+        <missing_id>You're calling this script incorrectly.</missing_id>
+        <belongs_to_other>The notification you try to access doesn't belong to you.</belongs_to_other>
+        <cant_be_deleted>The notification can't be deleted! Please contact our Tech Support Staff.</cant_be_deleted>
+    </notification_deletion_errors>
+    
+    <zip>
+        <zip_support_disabled><![CDATA[
+            Zip support is not present in current PHP installation.<br>
+            <b>Uploading zip files will cause an error.</b><br>
+            Please avoid uploading zip files and contact the tech support staff and let them know this message.
+        ]]></zip_support_disabled>
+        <zip_file_cannot_be_opened>The zip file you've uploaded cannot be opened. Please make sure you're uploading a non-corrupt, unprotected zip file. Error reported by the unzip function: {$error}</zip_file_cannot_be_opened>
+        <zip_file_cannot_be_extracted>The file/s inside the zip you've uploaded cannot be extracted. Please make sure you're uploading a non-corrupt, unprotected zip file. If the file was corrupted, please try uploading it again. Error reported by the unzip function: {$error}</zip_file_cannot_be_extracted>
+    </zip>
+    
+    <clipboard>
+        <copied>Information copied to clipboard.</copied>
+        <unable_to_copy>Can't copy to the clipboard. Please select/copy manually.</unable_to_copy>
+    </clipboard>
+    
+    <show_log>Show log</show_log>
+    <show_contents>Show contents</show_contents>
+    
+    <home_title>Home</home_title>
+    
+    <captcha_not_configured><![CDATA[
+        Captcha keys aren't configured! Please get into the settings admin page and specify them.
+    ]]></captcha_not_configured>
+    
+    <search_placeholder>Find text or #tags</search_placeholder>
+    
+    <install_messages>
+        <table_created_ok>Table {$table_name} successfully created.</table_created_ok>
+        <table_created_ko>Table {$table_name} can't be created! Error: {$error}</table_created_ko>
+        <table_deleted_ok>Table {$table_name} successfully deleted.</table_deleted_ok>
+        <table_deleted_ko>Table {$table_name} can't be deleted! Error: {$error}</table_deleted_ko>
+    </install_messages>
+    
+    <dismiss_all_notifications>Dismiss all notifications</dismiss_all_notifications>
+    
+    <settings_data>
+        <title>Engine behavior, presentation and defaults</title>
+        
+        <!-- Core -->
+        <specs is_separator="true">Core</specs>
+        
+        <specs key="enabled">
+            <title>Engine state</title>
+            <description><![CDATA[
+                Emergency switch to issue an all-systems halt. Only administrative functions will work if "Off" is selected.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="website_name">
+            <title>Website name</title>
+            <description><![CDATA[
+                Name of this website
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <!-- Meta tags -->
+        <specs is_separator="true">Meta tags</specs>
+        <specs key="meta_description">
+            <title>Meta Description</title>
+            <description><![CDATA[
+                Text to use as default description on all pages.<br>
+                <i class="fa fa-info-circle"></i>
+                It may be overriden by modules.
+            ]]></description>
+            <type>textarea</type>
+        </specs>
+        <specs key="meta_keywords">
+            <title>Meta Keywords</title>
+            <description><![CDATA[
+                Comma separated list of keywords for all pages.<br>
+                <i class="fa fa-info-circle"></i>
+                It may be overriden by modules.
+            ]]></description>
+            <type>textarea</type>
+        </specs>
+        <specs key="meta_rating">
+            <title>Meta Rating</title>
+            <description><![CDATA[
+                Rating of the website.<br>
+                <i class="fa fa-info-circle"></i>
+                It may be overriden by modules.
+            ]]></description>
+            <type>list</type>
+            <options>
+                <option value="">General</option>
+                <option value="mature">Mature</option>
+                <option value="restricted">Restricted</option>
+                <option value="14 years">14 years</option>
+                <option value="safe for kids">Safe for kids</option>
+            </options>
+        </specs>
+        <specs key="meta_robots">
+            <title>Meta Robots</title>
+            <description><![CDATA[
+                Directives for robots. <a href="http://www.robotstxt.org/meta.html" target="_blank">Full reference here</a>.<br>
+                <i class="fa fa-info-circle"></i>
+                It may be overriden by modules.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="meta_revisit_after">
+            <title>Meta Revisit-After</title>
+            <description><![CDATA[
+                A single expression of a period for search engines to revisit this page, E.G.
+                <code>3 days</code>, <code>1 month</code>.<br>
+                Defaults to <code>7 days</code><br>
+                <i class="fa fa-info-circle"></i>
+                It may be overriden by modules.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="meta_default_image">
+            <title>Default image</title>
+            <description><![CDATA[
+                Specify an image to use when the page doesn't have a thumbnail set.<br>
+                <i class="fa fa-info-circle"></i>
+                A good standard for an image on this case would be
+                <code>1100x575</code>.
+            ]]></description>
+            <type>@gallery:specs_renderer/image_selector</type>
+            <options>
+                <image_size>full</image_size>
+            </options>
+        </specs>
+        
+        <!-- Display -->
+        <specs is_separator="true">Display and layout</specs>
+        
+        <specs key="default_language">
+            <title>Default language</title>
+            <description><![CDATA[
+                Default display language.<br>
+                <span class="fa fa-warning"></span>
+                <b>Important:</b> The engine and the core modules support listed languages, but
+                it is possible that not all the installed modules do. In such case, the fallback
+                language will always be <code>English/United States</code>.
+            ]]></description>
+            <type>locale_list</type>
+        </specs>
+        <specs key="template">
+            <title>Active template</title>
+            <description><![CDATA[
+                Template to use for all output.
+            ]]></description>
+            <type>template_selector</type>
+        </specs>
+        <specs key="hide_left_sidebar_on_admin_pages">
+            <title>Hide left sidebar on admin pages</title>
+            <description><![CDATA[
+                If the template has left sidebar support (usually used to display frontend-related links),
+                hide it on those pages that use the admin layout.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+        <specs key="show_admin_menu_in_header_menu">
+            <title>Alternate admin menu layout</title>
+            <description><![CDATA[
+                By default, the admin menu is shown on a bar above the standard menu bar.<br>
+                If this option is enabled, admin menu entries will be moved into the menu bar (yet they'll remain visible for admins only).
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="main_menu_auto_collapse_width" disabled="true">
+            <title>Main menu auto-collapse width</title>
+            <description><![CDATA[
+                Specify the width in pixels that the browser window/display must have to collapse the main menu.<br>
+                The best amount to specify here is the width of the browser window with all menu items being shown.<br>
+                Defaults to 700.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        
+        <!-- Email -->
+        <specs is_separator="true">Email</specs>
+        
+        <specs key="webmaster_address">
+            <title>Webmaster address</title>
+            <description><![CDATA[
+                Email address where all contact requests and engine notifications should be sent to.
+            ]]></description>
+            <type>email</type>
+        </specs>
+        <specs key="mail_sender_name">
+            <title>Email sender name</title>
+            <description><![CDATA[
+                Name of the sender for delivery of email notifications and messages. 
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="mail_sender_email">
+            <title>Email sender address</title>
+            <description><![CDATA[
+                Email address used to deliver notificacions and messages
+            ]]></description>
+            <type>email</type>
+        </specs>
+        <specs key="mail_sender_smtp_enabled">
+            <title>Send email through SMTP</title>
+            <description><![CDATA[
+                By default, all email is sent through the local transport (usually <code>sendmail</code>).
+                If you want to send email through a local or external SMTP server, enable this option
+                and set account/connection details ahead.
+                <a class="framed_content inlined state_highlight" href="{$full_root_url}/scripts/test_mail.php" target="_blank"
+                   onclick="var $this = $(this); var a = prompt('Type an email address to send to'); if( a ) { $this.attr('href', $this.attr('href') + '?to=' + a); return true; } else { return false; } ">
+                    Click here to send a test email
+                </a>
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="mail_sender_smtp_host">
+            <title>SMTP host</title>
+            <description><![CDATA[
+                IP or Hostname
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="mail_sender_smtp_port">
+            <title>SMTP port</title>
+            <description><![CDATA[
+                Specify the SMTP port. Hints:<br>
+                • <code>25</code> is the plain text standard.<br> 
+                • <code>465</code> is the standard for SSL authentication.<br> 
+                • <code>587</code> is the standard for TLS authentication.<br> 
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="mail_sender_smtp_user">
+            <title>SMTP account user</title>
+            <description><![CDATA[
+                Username of the SMTP account 
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="mail_sender_smtp_password">
+            <title>SMTP account password</title>
+            <description><![CDATA[
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="mail_sender_smtp_security">
+            <title>SMTP security</title>
+            <description><![CDATA[
+                Please select an option.
+            ]]></description>
+            <type>list</type>
+            <options>
+                <option value="">Plain text</option>
+                <option value="ssl">SSL</option>
+                <option value="tls">TLS</option>
+            </options>
+        </specs>
+        
+        <!-- Users -->
+        <specs is_separator="true">User settings</specs>
+        
+        <specs key="user_levels">
+            <title>User levels</title>
+            <description><![CDATA[
+                List of all user levels in the system.<br>
+                User levels go from <code>0</code> to <code>255</code>. You can add as many levels as needed to identify your user types
+                using the next syntax: <code>level - name</code>, E.G. <code>100 - Author</code>.<br>
+                <span class="fa fa-warning"></span> <b>Warning:</b>
+                There are <b>8</b> roles tied to specific levels:
+                <span class="framed_content inlined">0 - Unregistered</span>, <span class="framed_content inlined">1 - Unconfirmed</span>,
+                <span class="framed_content inlined">10 - Newcomer</span>,    <span class="framed_content inlined">100 - Author</span>,
+                <span class="framed_content inlined">150 - VIP</span>,        <span class="framed_content inlined">200 - Moderator</span>,
+                <span class="framed_content inlined">240 - Coadmin</span> and <span class="framed_content inlined">255 - Admin</span>.<br>
+                You must <b>keep these levels</b> in the list and just change their names as needed. Plus,
+                add any levels <b>between</b> them.
+            ]]></description>
+            <type>textarea</type>
+        </specs>
+        <specs key="user_online_cookie">
+            <title>User online cookie</title>
+            <description><![CDATA[
+                Name of the cookie to store the session account id on the user's browser.<br>
+                Change it to force users <u>with an open session</u> to re-authenticate. 
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="user_session_cookie">
+            <title>User session cookie</title>
+            <description><![CDATA[
+                Name of the cookie to store the account id on the user's browser so the user doesn't need to login every time.<br>
+                Change it to <u>force all users</u> (online/offline) to re-authenticate.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <!-- Input and uploads -->
+        <specs is_separator="true">Form input and uploads</specs>
+        
+        <specs key="recaptcha_private_key">
+            <title>reCAPTCHA secret key</title>
+            <description><![CDATA[
+                Secret key provided by Google Recaptcha. Used to protect the engine from automated accounts
+                creation among other things.<br>
+                Visit <a href="https://www.google.com/recaptcha" target="_blank">Google reCAPTCHA</a> to get your secret/site keypair
+                or leave blank to disable reCAPTCHA functionality.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="recaptcha_public_key">
+            <title>reCAPTCHA site key</title>
+            <description><![CDATA[
+                Public key provided by Google Recaptcha. Used in conjunction with the private key.<br>
+                Leave blank to disable reCAPTCHA functionality.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="max_upload_size">
+            <title>Maximum upload size</title>
+            <description><![CDATA[
+                Amount <u>in megabytes</u> to set for file uploads. Defaults to 10.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="upload_file_types" highlight_class="sensitive">
+            <title>Allowed upload file types</title>
+            <description><![CDATA[
+                List of supported media types and their corresponding managers, one per line,
+                using the following syntax: <code>type - manager_class</code>.<br>
+                By default, allowed upload types are:
+                <code>png</code>, <code>gif</code>, <code>jpg/jpe/jpeg</code>, <code>mpg</code>,
+                <code>mp4</code>, <code>m4v</code>, <code>3gp</code>, <code>mov</code>, 
+                <code>flv</code>, <code>mkv</code>, <code>wmv</code>, <code>ogg</code>, <code>ogv</code>
+                and <code>avi</code>.<br>
+                <span class="fa fa-warning"></span>
+                This value may be updated when a module that handles file uploads is added/removed.<br>
+                Also, the <code>manager_class</code> must be an existing and valid class.
+                <b>Do not touch this value</b> unless you know what you're doing.
+            ]]></description>
+            <type>textarea</type>
+        </specs>
+        
+        <!-- Media -->
+        <specs is_separator="true">Media defaults</specs>
+        
+        <specs key="thumbnail_size">
+            <title>Thumbnails size</title>
+            <description><![CDATA[
+                The image manager builds thumbnails when files are uploaded and built keeping
+                the aspect ratio before cropping within the defined size.<br>
+                Specify here the dimensions in pixels.
+                By default, Thumbnails are managed at <code>460x220</code>.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        <specs key="thumbnail_png_compression">
+            <title>PNG thumbnails compression</title>
+            <description><![CDATA[
+                Specify the lossless PNG compression level used for thumbnails generation in PNG format.<br>
+                Default value is <code>9</code> (best compression).
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>0</min>
+                <max>9</max>
+            </options>
+        </specs>
+        <specs key="thumbnail_jpg_compression">
+            <title>JPEG thumbnails quality</title>
+            <description><![CDATA[
+                Specify the quality percent used for thumbnails generation in JPEG format.<br>
+                Default value is <code>90%</code> (good quality with less file size).<br>
+                Minimum recommended value is <code>40%</code>. Anything below that will be ugly.
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>10</min>
+                <max>100</max>
+            </options>
+        </specs>
+        <specs key="ffmpeg_path">
+            <title>FFmpeg path</title>
+            <description><![CDATA[
+                FFmpeg is needed to handle video conversions. It must be installed in the server to support
+                video uploads using the gallery manager.<br>
+                You can download and install it on your server using the command line <code>sudo apt-get install ffmpeg</code>
+                on Ubuntu/Debian or <code>sudo yum install ffmpeg</code> on Red Hat/CentOS.<br>
+                If you have a shared hosting and can't install it on the server, you can download a static version
+                <a href="http://johnvansickle.com/ffmpeg/" target="_blank">from here</a> and run it from your home folder.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <!-- Debug -->
+        <specs is_separator="true">Debugging</specs>
+        
+        <specs key="display_performance_details" highlight_class="sensitive">
+            <title><![CDATA[
+                <span class="framed_content state_highlight inlined">Debugging</span>
+                Display performance details
+            ]]></title>
+            <description><![CDATA[
+                Display page load times and resource consumption at the footer of every page.<br>
+                <span class="fa fa-warning"></span>
+                <b>Warning:</b> all users will be able to see these details!
+            ]]></description>
+            <type>boolean</type>
+            <config_callback>toggle_display_performance</config_callback>
+        </specs>
+        <specs key="query_tracking_enabled" highlight_class="sensitive">
+            <title><![CDATA[
+                <span class="framed_content state_highlight inlined">Debugging</span>
+                Query tracking
+            ]]></title>
+            <description><![CDATA[
+                Allows the engine to track database queries and show a table at the end of every page, below the footer.<br>
+                <span class="fa fa-warning"></span>
+                <b>Warning:</b> all users will be able to see these details!
+            ]]></description>
+            <type>boolean</type>
+            <config_callback>toggle_query_tracking</config_callback>
+        </specs>
+        <specs key="query_backtrace_enabled" highlight_class="sensitive">
+            <title><![CDATA[
+                <span class="framed_content state_highlight inlined">Debugging</span>
+                Query backtrace
+            ]]></title>
+            <description><![CDATA[
+                When query tracking is enabled, add a column showing the PHP scripts doing the calls.<br>
+                <span class="fa fa-warning"></span>
+                <b>Warning:</b> all users will be able to see these details!
+            ]]></description>
+            <type>boolean</type>
+            <config_callback>toggle_query_backtrace</config_callback>
+        </specs>
+        
+    </settings_data>
+    
+    <file_ops>
+        <source_not_found>File {$source} doesn't exist. It cannot be moved.</source_not_found>
+        <target_exists>File {$target} exists, {$source} cannot be moved.</target_exists>
+        <cant_move>File {$source} cannot be moved/renamed to {$target}</cant_move>
+        <fails_subject>[{$website_name}] Failed file operations</fails_subject>
+        <fails_notification><![CDATA[
+            There has been errors in the last file operations:<br>
+            {$errors}<br>
+            Please take the proper measures.<br><br>
+            Stack trace:<br>
+            {$stack_trace}
+        ]]></fails_notification>
+    </file_ops>
+    
+    <confirm_action>Please confirm that you want to proceed with the selected action.</confirm_action>
+    
+    <engine_prefs>
+        
+        <title>Notifications core</title>
+        
+        <specs key="silent_notifications">
+            <title>Silent notifications?</title>
+            <description><![CDATA[
+                Disable notification sounds.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+        
+    </engine_prefs>
+    
+</language>

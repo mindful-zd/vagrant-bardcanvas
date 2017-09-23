@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Search facility</display_name>
+    <icon>fa-search</icon>
+    <description>
+        Posts/media search facility
+    </description>
+    
+    <index>
+        <title>Search results for «{$terms}»</title>
+        <placeholder>Words or #hashtags to search in author name, title and content</placeholder>
+        <all_categories>All categories</all_categories>
+        <any_user>Author</any_user>
+        <any_date>yyyy-mm-dd</any_date>
+        <submit>Search</submit>
+        <reset>Reset</reset>
+    </index>
+    
+    <search_hits>Show results ({$hits} hits)</search_hits>
+    <tag_hits>Browse this tag ({$hits} hits)</tag_hits>
+    
+    <messages>
+        <empty_search>Please specify something to find</empty_search>
+        <empty_results>Nothing was found with the given search parameters</empty_results>
+        <results>{$count} entries found</results>
+    </messages>
+    
+    <widgets>
+        <search>
+            <title>Search</title>
+            <info>Adds a simple search form.</info>
+        </search>
+        <searches_cloud>
+            <title>Searches cloud</title>
+            <info>Configurable cloud of popular search terms.</info>
+            <editable_specs>
+                <specs key="min_hits">
+                    <title>Minimum hits for popular searches cloud</title>
+                    <description><![CDATA[
+                        Amount of published entries to consider as minimum when building the popular searches cloud.<br>
+                        Defaults to <code>10</code>. Recommended minimum: <code>5</code>.
+                        Set to <code>1</code> to disable (setting to <code>0</code> will default to <code>10</code>).
+                    ]]></description>
+                    <type>number</type>
+                    <options>
+                        <min>1</min>
+                    </options>
+                </specs>
+                <specs key="cache_ttl">
+                    <title>Popular searches cloud widget cache TTL (expiration)</title>
+                    <description><![CDATA[
+                        Amount of hours the searches cloud widget should be cached.<br>
+                        Defaults to <code>1</code> hour. Set to <code>0</code> to disable caching.<br>
+                        Recommended value: depends on the search traffic intensity.
+                        For high traffic, 1-3 hours should suffice. For less traffic, 6 hours or more.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+                <specs key="cache_version">
+                    <title>Version number for searches cloud widget cache</title>
+                    <description><![CDATA[
+                        Add <code>1</code> to it to force an update.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+            </editable_specs>
+        </searches_cloud>
+        <tags_cloud>
+            <title>Tags cloud</title>
+            <info>Configurable tags cloud.</info>
+            <editable_specs>
+                <specs key="min_hits">
+                    <title>Minimum hits for tags cloud</title>
+                    <description><![CDATA[
+                        Amount of published entries to consider as minimum when building the tags cloud.<br>
+                        Defaults to <code>10</code>. Recommended minimum: <code>5</code>.
+                        Set to <code>1</code> to disable (setting to <code>0</code> will default to <code>10</code>).
+                    ]]></description>
+                    <type>number</type>
+                    <options>
+                        <min>1</min>
+                    </options>
+                </specs>
+                <specs key="cache_ttl">
+                    <title>Tags cloud widget cache TTL (expiration)</title>
+                    <description><![CDATA[
+                        Amount of hours the tags cloud widget should be cached.<br>
+                        Defaults to <code>3</code> hours. Set to <code>0</code> to disable caching.<br>
+                        Recommended value: depends on the amount of posts being published and their timing.
+                        For constantly updated sites, 3-6 hours should suffice. For less updated sites, 24 hours or more.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+                <specs key="cache_version">
+                    <title>Version number for tags cloud widget cache</title>
+                    <description><![CDATA[
+                        Add <code>1</code> to it to force an update.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+                <specs key="exceptions">
+                    <title>Exceptions for the tags cloud</title>
+                    <description><![CDATA[
+                        Space-separated list of tags (without the hash symbols) to exclude from the tags cloud.
+                    ]]></description>
+                    <type>textarea</type>
+                </specs>
+            </editable_specs>
+        </tags_cloud>
+    </widgets>
+    
+    <pages>
+        <by_tag>
+            <title>Relevant items tagged with #{$tag}</title>
+            <no_records>No records of any kind have been found with this hashtag.</no_records>
+        </by_tag>
+    </pages>
+    
+</language>

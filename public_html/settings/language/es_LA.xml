@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Editor de configuración</display_name>
+    <icon>fa-gears</icon>
+    <description>
+        Editor de configuración del sistema.
+    </description>
+    
+    <back_to_top>Regresar al inicio</back_to_top>
+    <lookup_caption>Buscar entre descripciones</lookup_caption>
+    <please_select_an_option>Selecciona una opción</please_select_an_option>
+    
+    <admin>
+        <menu_items>
+            <admin_menu_caption>Configuración</admin_menu_caption>
+        </menu_items>
+        <record_nav>
+            <page_title>Editor de configuración</page_title>
+            <show_all>Todo</show_all>
+            <orphan>Otros/sin definir</orphan>
+            <save_now>Guardar ahora</save_now>
+            <errors>
+                <empty_val>El elemento "{$name}" no puede tener un valor vacío. Favor de verificar.</empty_val>
+                <var_ok>Elemento "{$name}" guardado.</var_ok>
+                <var_deleted>Elemento "{$name}" eliminado.</var_deleted>
+            </errors>
+        </record_nav>
+        <undefined_settings><![CDATA[
+            <b>Advertencia!</b>
+            Las siguientes opciones se encontraron en la base de datos pero no se han encontrado especificaciones
+            en ningun módulo instalado.<br>
+            Evita tocarlas o ten cuidado al hacerlo.
+        ]]></undefined_settings>
+        <wrong_type><![CDATA[
+            Este elemento tiene un tipo incorrecto definido (comienza con <code>@</code>, pero
+            no hay ningún módulo/punto de extensión especificado.
+            El tipo debe ser checado en el archivo de lenguaje del módulo.
+        ]]></wrong_type>
+        <missing_extender><![CDATA[
+            Este elemento tiene un requerimiento de extensión, pero no se ha encontrado el módulo.<br>
+            Módulo requerido: <span class="framed_content inlined">{$module}</span><br>
+            Área de anclaje: <span class="framed_content inlined">{$area}</span><br>
+            Marcador de anclaje: <span class="framed_content inlined">{$marker}</span><br>
+            Es posible que necesites instalar/activar el módulo referenciado para editar el valor de forma adecuada.
+        ]]></missing_extender>
+    </admin>
+    
+    <add>
+        <caption>Añadir...</caption>
+        <prompt><![CDATA[
+            Indica un identificador/llave para la variable.
+            Usar solo caracteres alfanuméricos en minúsculas,
+            guiones bajos, puntos y dos puntos (:).
+             
+            De preferencia, prefíjala con un guión bajo para evitar
+            colisiones con variables predefinidas.
+        ]]></prompt>
+        <name_not_provided>Especifica un nombre para la variable.</name_not_provided>
+        <name_already_exists>El nombre que has especificado ya existe.</name_already_exists>
+    </add>
+    
+    <select>Seleccionar</select>
+    <preview>Vista previa...</preview>
+    <website>Sitio web</website>
+    <no_author_specified>Autor no especificado</no_author_specified>
+    <get_more_templates>Descarga más plantillas de BardCanvas.com</get_more_templates>
+    
+</language>

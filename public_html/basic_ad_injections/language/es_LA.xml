@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Inyección de banners y HTML</display_name>
+    <icon>fa-code</icon>
+    <description>
+        Añade puntos de inyección de código HTML para banners, scripts y CSS personalizado.
+    </description>
+    
+    <settings_data>
+        
+        <title>HTML personalizado y código de banners</title>
+        
+        <specs key="html_head">
+            <title>Encabezado HTML</title>
+            <description><![CDATA[
+                Código a añadir al final del segmento <code>&lt;head&gt;</code>
+                (P.E. etiquetas <code>&lt;script&gt;</code> y <code>&lt;style&gt;</code>)
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="header_bottom">
+            <title>Al final del header</title>
+            <description><![CDATA[
+                Código a añadir al final del encabezado HTML (debajo del menú principal).
+                Ideal para logos o banners de ancho completo.
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="home_content" highlight_class="sensitive">
+            <title>Contenido en página principal</title>
+            <description><![CDATA[
+                Código a añadir <b>en la página principal</b>.
+                Se coloca al inicio de cualquier otro contenido generado por otros módulos,
+                pero sólo en la página principal.
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="pre_content">
+            <title>Pre-contenido</title>
+            <description><![CDATA[
+                Código a añadir dentro de la envoltura de contenido, entre barras laterales.
+                Recomendado para banners responsivos justo antes de los contenidos iniciales.
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="content_top">
+            <title>Inicio de contenido</title>
+            <description><![CDATA[
+                Código a añadir entre el encabezado y la envoltura de contenido.
+                Recomendado para banners anchos.
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="pre_footer">
+            <title>Pre-pie de página</title>
+            <description><![CDATA[
+                Código a añadir debajo de la envoltura de contenido y antes del pie de página.
+                Recomendado para banners anchos.
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="footer_code">
+            <title>Pie de página</title>
+            <description><![CDATA[
+                Contenido a poner en lugar del pie de página predeterminado. Puedes usar los siguientes tokens:
+                <ul>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$website_name}">{$website_name} <i class="fa fa-copy"></i></code>
+                        Para insertar el nombre del website.
+                    </li>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$powered_by}">{$powered_by} <i class="fa fa-copy"></i></code>
+                        Para insertar la leyenda "Powered by" con la versión actual del motor.
+                    </li>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$query_tracking_info}">{$query_tracking_info} <i class="fa fa-copy"></i></code>
+                        Para insertar estadísticas de uso de consultas a la base de datos si el Rastreo de base de datos está activado en la configuración.
+                    </li>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$timing_info}">{$timing_info} <i class="fa fa-copy"></i></code>
+                        Para insertar el tiempo consumido en construir la página si el muestreo de detalles de rendimiento está habilitado en la configuración.
+                    </li>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$memory_info}">{$memory_info} <i class="fa fa-copy"></i></code>
+                        Para insertar la cantidad de memoria RAM usada en construir la página si el muestreo de detalles de rendimiento está habilitado en la configuración.
+                    </li>
+                    <li>
+                        <code class="clipboard-copy pseudo_link" data-clipboard-text="{$internals_link}">{$internals_link} <i class="fa fa-copy"></i></code>
+                        Para insertar un vínculo para mostrar la tabla de detalles internos si el muestreo de detalles de rendimiento está habilitado en la configuración
+                        y la constante EMBED_INTERNALS está puesta a <code>true</code> en el archivo de configuración.
+                    </li>
+                </ul>
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+        <specs key="pre_eof">
+            <title>Pre-fin de archivo</title>
+            <description><![CDATA[
+                Código a añadir después del pie de página, ya cerrada la envoltura de contenido,
+                justo antes se cerrar el tag <code>&lt;body&gt;</code>
+                Recomendado para contenido escondido y manipulado vía JavaScript
+            ]]></description>
+            <type>code</type>
+        </specs>
+        
+    </settings_data>
+    
+</language>

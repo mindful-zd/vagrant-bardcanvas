@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.0.0</version>
+    <group>modules_blog_addons</group>
+    <admin_only>false</admin_only>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <template_includes>
+        <pre_header     priority="900">pre_header.inc</pre_header>
+        <content_top    priority="900">content_top.inc</content_top>
+        <content_bottom priority="900">content_bottom.inc</content_bottom>
+        <pre_footer     priority="900">pre_footer.inc</pre_footer>
+        <post_footer    priority="900">post_footer.inc</post_footer>
+        <pre_eof        priority="900">pre_eof.inc</pre_eof>
+    </template_includes>
+    
+</module>

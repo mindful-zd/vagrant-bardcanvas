@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.4.1</version>
+    <group>modules_blog</group>
+    <admin_only>true</admin_only>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>false</uninstall>
+        <enable>false</enable>
+        <disable>false</disable>
+    </working_flags>
+    
+    <php_includes>
+        <!--<bootstrap></bootstrap>-->
+    </php_includes>
+    
+    <!--
+    <template_includes>
+        <pre_rendering></pre_rendering>
+        <html_head></html_head>
+        <pre_header></pre_header>
+        <header_top></header_top>
+        <header_menu></header_menu>
+        <header_bottom></header_bottom>
+        <content_top></content_top>
+        <home_content></home_content>
+        <content_bottom></content_bottom>
+        <pre_footer></pre_footer>
+        <footer_top></footer_top>
+        <footer_bottom></footer_bottom>
+        <post_footer></post_footer>
+        <pre_eof></pre_eof>
+        <post_rendering></post_rendering>
+    </template_includes>
+    -->
+    
+    <widgets>
+        
+        <widget for="right_sidebar" id="search" type="php" is_clonable="false" file="search_box.inc"
+                added_classes="highlighted"/>
+        
+        <widget for="right_sidebar" id="searches_cloud" type="php" is_clonable="false" file="searches_cloud.inc" />
+        
+        <widget for="right_sidebar" id="tags_cloud" type="php" is_clonable="false" file="tags_cloud.inc" />
+        
+    </widgets>
+    
+</module>

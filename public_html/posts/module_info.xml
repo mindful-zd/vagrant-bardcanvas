@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.27.0</version>
+    <group>modules_blog</group>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <php_includes>
+        <!--<bootstrap></bootstrap>-->
+        <document_handler>extenders/document_handler.inc</document_handler>
+        <rss_feed_generator handle_pattern="^_none_|author/.*|user/.*|category/.*$">extenders/rss_feed_generator.inc</rss_feed_generator>
+        <media_record_filtering_tags_list>extenders/media_record_filtering_tags_list.inc</media_record_filtering_tags_list>
+        <webhelper_autolink_hash_tags_filter>extenders/webhelper_autolink_hash_tags.inc</webhelper_autolink_hash_tags_filter>
+        <media_repository_delete_multiple_if_unused>extenders/media_repository_delete_multiple_if_unused.inc</media_repository_delete_multiple_if_unused>
+        <media_repository_empty_trash>extenders/media_repository_empty_trash.inc</media_repository_empty_trash>
+    </php_includes>
+    
+    <template_includes>
+        <pre_rendering>pre_rendering_presets.inc</pre_rendering>
+        <html_head>global_header.inc</html_head>
+        <!--<pre_header></pre_header>-->
+        <!--<header_top></header_top>-->
+        <header_menu>header_buttons.inc</header_menu>
+        <!--<header_bottom></header_bottom>-->
+        <!--<content_top></content_top>-->
+        <home_content>home_index.inc</home_content>
+        <!--<content_bottom></content_bottom>-->
+        <!--<post_footer>global_post_footer.inc</post_footer>-->
+        <!--<footer_top></footer_top>-->
+        <!--<footer_bottom></footer_bottom>-->
+        <!--<post_footer></post_footer>-->
+        <pre_eof>global_messages.inc</pre_eof>
+        <!--<post_rendering></post_rendering>-->
+    </template_includes>
+    
+    <extension_areas_info><![CDATA[
+        Front pages: single post, content additions / after contents.
+        Front pages: indexes, after post excerpt.
+        Index Builders / Home.
+        Index Builders / Author index.
+        Index Builders / Category index.
+        Index Builders / Tag index.
+        Posts Repository Class / Home Prebuilding, Preload Authors, Empty Trash, Get Posts data (multiple), Get for Category.
+        Post Record Class / Set from object, Get Processed Excerpt, Get Processed Content.
+        Posts saving / After record forging.
+        Editor form: Below main category selector, below editor, option columns (left, middle, right), outside (after closing the form).
+        Quick post form: Pre rendering / Process prebuilt category selector options / Below main category selector.
+        JSON record exporter / before output.
+        Post actions: before trashing, after publishing, after flagged for reviewing, after hiding, after setting as draft, after untrashing for review.
+        Browser: after collection built, per record function hooks, main actions
+        Posts by category index: pre fetching, pre rendering, before heading, after heading
+        Posts by tag index: pre fetching, pre rendering, before heading, after heading
+        Posts by date index: pre fetching, pre rendering, before heading, after heading
+        Posts by author index: pre fetching, pre rendering, before heading, after heading
+    ]]></extension_areas_info>
+    
+    <shortcode_handlers>
+        <handler name="post_family_tree">
+            <syntax>[post_family_tree reach="all|children" title="string" class="css classes" style="css styles"]</syntax>
+            <file>shortcode_handlers/post_family_tree.inc</file>
+        </handler>
+    </shortcode_handlers>
+    
+    <extends_to>
+        <search>
+            <search_by_tag>
+                <collection_builder>extenders/search_by_tag_builder.inc</collection_builder>
+            </search_by_tag>
+        </search>
+        <contact>
+            <index>
+                <pre_start>extenders/contact_index_pre_start.inc</pre_start>
+            </index>
+            <form>
+                <presets>extenders/contact_form_report_presets.inc</presets>
+            </form>
+        </contact>
+        <accounts>
+            <records_browser>
+                <additional_headers    priority="100">extenders/accounts/browser_headers.inc</additional_headers>
+                <additional_columns    priority="100">extenders/accounts/browser_columns.inc</additional_columns>
+                <presettings_data      priority="100">extenders/accounts/browser_presets.inc</presettings_data>
+                <principal_data_addons priority="100">extenders/accounts/principal_data_addons.inc</principal_data_addons>
+            </records_browser>
+            <toolbox>
+                <enable_account>extenders/accounts/toolbox_enable_account.inc</enable_account>
+                <disable_account>extenders/accounts/toolbox_disable_account.inc</disable_account>
+            </toolbox>
+            <accounts_repository>
+                <delete>extenders/accounts/account_deletion.inc</delete>
+            </accounts_repository>
+            <user_profile_home>
+                <additional_sections>extenders/accounts/profile_home_sections.inc</additional_sections>
+            </user_profile_home>
+        </accounts>
+        <gallery>
+            <records_browser>
+                <principal_data_addons priority="100">extenders/gallery/principal_data_addons.inc</principal_data_addons>
+            </records_browser>
+        </gallery>
+        <categories>
+            <browser>
+                <presettings_data      priority="100">extenders/categories/browser_presets.inc</presettings_data>
+                <additional_headers    priority="100">extenders/categories/browser_headers.inc</additional_headers>
+                <additional_columns    priority="100">extenders/categories/browser_columns.inc</additional_columns>
+                <per_record_function_hooks>extenders/categories/browser_function_hooks.inc</per_record_function_hooks>
+            </browser>
+        </categories>
+        <triklet>
+            <home_form>
+                <presets>extenders/triklet_form_report_presets.inc</presets>
+            </home_form>
+        </triklet>
+    </extends_to>
+    
+    <widgets>
+        
+        <widget for="right_sidebar" id="other_posts_in_category" type="php" is_clonable="true"
+                file="other_posts_in_category.inc" />
+        
+        <widget for="right_sidebar" id="posts_by_tag" type="php" is_clonable="true"
+                file="posts_by_tag.inc" />
+        
+        <widget for="right_sidebar" id="popular_posts_fortnight" type="php" is_clonable="true"
+                file="popular_posts_fortnight.inc" />
+        
+        <widget for="left_sidebar"  id="archives_tree"  type="php" is_clonable="false"
+                file="left_sidebar_archives_tree.inc" added_classes="archive_tree" />
+        
+    </widgets>
+    
+</module>

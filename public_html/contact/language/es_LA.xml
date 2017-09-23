@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <!-- #################################### -->
+    <!-- Settings module language definitions -->
+    <!-- #################################### -->
+    
+    <display_name>Subsistema de contacto</display_name>
+    <icon>fa-envelope-o</icon>
+    <description>
+        Componentes para enviar correo a los usuarios y contactar a los administradores
+    </description>
+    
+    <menu_caption>Contacto</menu_caption>
+    
+    <settings_data>
+        <title>Forma de contacto</title>
+        <specs key="hide_on_main_menu">
+            <title>Esconder en menú principal?</title>
+            <description><![CDATA[
+                Mostrar/ocultar vínculo en el menú principal del sistema.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+        <specs key="no_anonymous_emails">
+            <title>Sólo usuarios registrados pueden contactar a otros</title>
+            <description><![CDATA[
+                Activa esta opción si deseas impedir que invitados anónimos puedan
+                usar la forma de contacto con usuarios registrados.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="csrf_for_guests">
+            <title>Activar protección CSRF para invitados</title>
+            <description><![CDATA[
+                Cuando esta opción se activa, se pondrá un token escondido en la forma de contacto
+                para evitar envíos automáticos por robots de spam.<br>
+                <i class="fa fa-warning"></i>
+                <b>Importante:</b> algunos proxys o capacidad de ahorro de datos en navegadores
+                puede impedir a verdaderos usuarios anónimos usar la forma de contacto.
+                Es recomendable desactivar esta opción a menos que estés recibiendo constantemente
+                mensajes de spam.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+    </settings_data>
+    
+    <engine_prefs>
+        <title>Correo electrónico</title>
+        
+        <specs key="allow_emails" selector_default="true">
+            <title>Permitir que cualquiera me mande correo</title>
+            <description><![CDATA[
+                Por defecto, cualquiera puede mandar correo a nuestros usuarios
+                por medio de la forma de contacto <b>sin exponer direcciones de correo</b>.
+                Si no deseas recibir correos de nadie (excepto mods/admins),
+                desactiva esta opción.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+    </engine_prefs>
+    
+    <title>
+        <general>Enviar correo al personal de {$site_name}</general>
+        <targeted>Enviar correo a un usuario de {$site_name}</targeted>
+    </title>
+    
+    <fields>
+        <target>Objetivo:</target>
+        <name>Tu nombre:</name>
+        <email>
+            <caption>Tu correo:</caption>
+            <info>
+                <general><![CDATA[
+                    Por favor verifica que <b>tu correo es correcto</b> o no recibirás una respuesta.
+                ]]></general>
+                <targeted><![CDATA[
+                    <b>Advertencia: tu dirección de correo puede ser vista por el usuario!</b>
+                    Por favor verifica que <b>tu correo es correcto</b> o no recibirás una respuesta (de haberla).
+                ]]></targeted>
+            </info>
+        </email>
+        <subject>Escribe un asunto para el mensaje</subject>
+        <content>Escribe el contenido del mensaje</content>
+    </fields>
+    
+    <body><![CDATA[
+        <p>
+            ¡Saludos, {$recipient_name}!
+        <p>
+        
+        <p>
+            {$sender_name} te ha enviado un mensaje desde {$website_name}:
+        <p>
+        
+        <blockquote style="padding: 10px; background-color: whitesmoke; border-left: 5px solid gray;">
+            {$body}
+        </blockquote>
+        
+        <p>
+            Si deseas responderle, da click en "responder" en tu programa o servicio de correo.
+            La respuesta será enviada directamente a {$sender_email}.
+        </p>
+        
+        <p>
+            Saludos,<br>
+            {$mailer_name} de {$website_name}.
+        </p>
+        
+        <hr>
+        <p>
+            Fecha de envío: {$date}<br>
+            Host de origen: {$origin_host}<br>
+            Ubicación de origen: {$origin_location}<br>
+            Llamada desde: {$referer}<br>
+        </p>
+    ]]></body>
+    
+    <messages>
+        <missing_posting_token><![CDATA[
+            No puedes saltarte la forma de contacto.
+            El envío directo no está permitido.
+            Nota: si estás usando algún proxy o ahorrador de datos
+            (Opera Turbo o el reductor de Google Chrome), deberás
+            desactivarlo e intentar de nuevo.
+        ]]></missing_posting_token>
+        <empty_name>Por favor escribe tu nombre.</empty_name>
+        <empty_email>Por favor escribe tu correo y asegúrate de que puedes recibir mensajes en tu buzón.</empty_email>
+        <invalid_mail>FAvor de proveer una dirección de correo válida.</invalid_mail>
+        <invalid_captcha>Clave de captcha inválida. Por favor intenta de nuevo.</invalid_captcha>
+        <empty_subject>Especifica un asunto para el mensaje.</empty_subject>
+        <empty_content>El mensaje no puede estar vacío.</empty_content>
+        <invalid_target>Disculpa, pero el destinatario es inválido o no existe en la base de datos.</invalid_target>
+        <self_messages_not_allowed>No puedes enviarte mensajes a ti mismo/a.</self_messages_not_allowed>
+        <user_cannot_be_emailed>Disculpa, pero este usuario no acepta correos.</user_cannot_be_emailed>
+        <sent_ok>Mensaje enviado con éxito. La página se recargará ahora.</sent_ok>
+        <guests_cant_email>Lo sentimos, pero invitados anónimos no pueden enviar correos a usuarios registrados.</guests_cant_email>
+    </messages>
+    
+</language>

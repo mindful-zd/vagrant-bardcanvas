@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>2.2.1</version>
+    <group>modules_base</group>
+    <admin_only>false</admin_only>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>false</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <!--<php_includes>-->
+        <!--<bootstrap></bootstrap>-->
+        <!--<notifications_getter></notifications_getter>-->
+    <!--</php_includes>-->
+    
+    <template_includes>
+        <!--<pre_rendering></pre_rendering>-->
+        <!--<html_head>html_head.inc</html_head>-->
+        <!--<pre_header></pre_header>-->
+        <!--<header_top></header_top>-->
+        <header_menu>header_buttons.inc</header_menu>
+        <!--<header_bottom></header_bottom>-->
+        <!--<content_top></content_top>-->
+        <!--<home_content></home_content>-->
+        <!--<content_bottom></content_bottom>-->
+        <!--<pre_footer></pre_footer>-->
+        <!--<footer_top></footer_top>-->
+        <!--<footer_bottom></footer_bottom>-->
+        <!--<post_footer>online_users_list_target.inc</post_footer>-->
+        <!--<pre_eof></pre_eof>-->
+        <!--<post_rendering></post_rendering>-->
+    </template_includes>
+    
+    <extension_areas_info><![CDATA[
+        Index: pre-start.
+        Form: presets.
+        Send email: pre and post send.
+    ]]></extension_areas_info>
+    
+</module>

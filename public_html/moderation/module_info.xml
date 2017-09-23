@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.2.3</version>
+    <group>modules_blog</group>
+    <admin_only>true</admin_only>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <!--
+    <template_includes>
+        <pre_rendering></pre_rendering>
+        <html_head></html_head>
+        <pre_header></pre_header>
+        <header_top></header_top>
+        <header_menu></header_menu>
+        <header_bottom></header_bottom>
+        <content_top></content_top>
+        <home_content></home_content>
+        <content_bottom></content_bottom>
+        <pre_footer></pre_footer>
+        <footer_top></footer_top>
+        <footer_bottom></footer_bottom>
+        <post_footer></post_footer>
+        <pre_eof></pre_eof>
+        <post_rendering></post_rendering>
+    </template_includes>
+    -->
+    
+    <php_includes>
+        <media_repository_empty_trash>extenders/media_repository_empty_trash.inc</media_repository_empty_trash>
+    </php_includes>
+    
+    <extends_to>
+        <comments>
+            <add_comment>
+                <before_saving>extenders/comments/add_before_saving.inc</before_saving>
+                <after_saving>extenders/comments/add_after_saving.inc</after_saving>
+            </add_comment>
+            <save_comment>
+                <before_saving>extenders/comments/save_before_saving.inc</before_saving>
+            </save_comment>
+            <browser>
+                <per_record_function_hooks>extenders/comments/browser_function_hooks.inc</per_record_function_hooks>
+            </browser>
+            <toolbox>
+                <after_publishing>extenders/comments/toolbox_after_publishing.inc</after_publishing>
+            </toolbox>
+            <comments_repository_class>
+                <empty_trash>extenders/comments/empty_trash.inc</empty_trash>
+            </comments_repository_class>
+        </comments>
+        <gallery>
+            <save_item>
+                <after_saving>extenders/gallery/after_saving.inc</after_saving>
+            </save_item>
+            <browser>
+                <per_record_function_hooks>extenders/gallery/browser_preloads.inc</per_record_function_hooks>
+            </browser>
+            <records_browser>
+                <principal_data_addons>extenders/gallery/browser_addon.inc</principal_data_addons>
+            </records_browser>
+            <toolbox>
+                <after_publishing>extenders/gallery/toolbox_after_publishing.inc</after_publishing>
+            </toolbox>
+        </gallery>
+        <posts>
+            <save_post>
+                <after_record_forging>extenders/posts/after_record_forging.inc</after_record_forging>
+                <after_saving>extenders/posts/after_saving.inc</after_saving>
+            </save_post>
+            <browser>
+                <per_record_function_hooks>extenders/posts/browser_function_hooks.inc</per_record_function_hooks>
+            </browser>
+            <post_actions>
+                <after_publishing>extenders/posts/toolbox_after_publishing.inc</after_publishing>
+            </post_actions>
+            <posts_repository_class>
+                <empty_trash>extenders/posts/empty_trash.inc</empty_trash>
+            </posts_repository_class>
+        </posts>
+        <accounts>
+            <registration>
+                <after_init>extenders/accounts/checks.inc</after_init>
+            </registration>
+            <profile_editor>
+                <after_init>extenders/accounts/checks.inc</after_init>
+            </profile_editor>
+            <accounts_repository>
+                <delete>extenders/accounts/deletion.inc</delete>
+            </accounts_repository>
+        </accounts>
+    </extends_to>
+    
+</module>

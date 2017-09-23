@@ -1,0 +1,55 @@
+/**
+ * Post styles - within the module
+ *
+ * @package    HNG2
+ * @subpackage posts
+ * @author     Alejandro Caballero - lava.caballero@gmail.com
+ */
+
+/* Editor insertable items */
+
+.tinymce_addons_bar .post_buttons button { font-size: 12pt; line-height: 24pt; }
+
+/* Record browser specific */
+
+@media all and (max-width: 800px)
+{
+    #posts_browser_table tr th:nth-child(4) { display: none; }
+    #posts_browser_table tr td:nth-child(4) { display: none; }
+}
+@media all and (max-width: 600px)
+{
+    #posts_browser_table tr th:nth-child(3) { display: none; }
+    #posts_browser_table tr td:nth-child(3) { display: none; }
+    #posts_browser_table tr th:nth-child(4) { display: none; }
+    #posts_browser_table tr td:nth-child(4) { display: none; }
+    #posts_browser_table tr th:nth-child(5) { display: none; }
+    #posts_browser_table tr td:nth-child(5) { display: none; }
+    #posts_browser_table tr th:nth-child(8) { display: none; }
+    #posts_browser_table tr td:nth-child(8) { display: none; }
+}
+
+/* Form featured image placeholder */
+
+#post_form .featured_image .thumbnail {
+    border: 1px solid; background-color: transparent;
+    position: relative; width: 100%; height: 130px; overflow: hidden;
+}
+
+#post_form .featured_image .thumbnail img {
+    position: absolute; left: 50%; top: 50%; max-width: 100%; height: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform:     translate(-50%,-50%);
+    transform:         translate(-50%,-50%);
+}
+
+/* Simplifiers for TinyMCE */
+
+/*
+@media all and (max-width: 480px)
+{
+    #post_form .field[data-field="content"] #mceu_36 { display: none; }
+    #post_form .field[data-field="content"] #mceu_37 { display: none; }
+    
+}
+*/

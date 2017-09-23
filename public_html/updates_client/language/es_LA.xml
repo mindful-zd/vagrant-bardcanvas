@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+
+    <display_name>Cliente de actualizaciones</display_name>
+    <icon>fa-download</icon>
+    <description>
+        Checador e instalador de actualizaciones
+    </description>
+    
+    <document_root_not_writable>La raíz de documentos del sitio no se puede escribir.</document_root_not_writable>
+    <engine_updates_disabled>Actualizaciones del motor deshabilitadas.</engine_updates_disabled>
+    <template_updates_disabled>Actualizaciones de plantillas deshabilitadas.</template_updates_disabled>
+    <module_updates_disabled>Actualizaciones de módulos deshabilitadas.</module_updates_disabled>
+    
+    <modules_manager>
+        <buttons>
+            <check_updates>Buscar actualizaciones...</check_updates>
+            <add_component>Instalar...</add_component>
+        </buttons>
+        <no_updates_detected>No se han detectado actualizaciones.</no_updates_detected>
+        <package_not_found>No se ha encontrado el paquete en el registro de BardCanvas. Revisa el grupo/nombre e intenta de nuevo. Si el problema persiste por favor solicita apoyo en bardcanvas.com</package_not_found>
+        <package_already_installed>El paquete especificado ya está instalado en este sitio web</package_already_installed>
+        <warning><![CDATA[
+            <b>Advertencia:</b> el directorio raíz de este sitio web parece estar protegido contra escritura.
+            Es posible que tengas errores al tratar de aplicar actualizaciones por medio del navegador.
+            En tal caso, deberás crear un cron job que se ejecute al menos una vez al día para buscar, descargar y aplicar actualizaciones.
+        ]]></warning>
+        <new_version_found><![CDATA[
+            NUeva versión encontrada: <span class="new_version">N/A</span><br>
+            <a class="changelog_link" href="" target="_blank"><i class="fa fa-file-text-o"></i> Ver bitácora de cambios</a>
+            <span class="pseudo_link" onclick="update_component(this)"><i class="fa fa-check"></i> Actualizar ahora</span>
+        ]]></new_version_found>
+    </modules_manager>
+    
+    <component_addition>
+        <title>Instalar componente de BardCanvas</title>
+        <info><![CDATA[
+            <p style="margin-top: 0">
+                Actualmente no existe un catálogo de componentes instalables (estamos trabajando en ello),
+                sin embargo, te proveemos dos formas para que puedas instalar módulos o plantillas
+                en tu sitio web a continuación.
+            </p>
+        ]]></info>
+        <manual>
+            <title>Adición manual de paquete</title>
+            <info><![CDATA[
+                <p style="margin-top: 0">
+                    Un paquete de BardCanvas se identifica de la siguiente forma: <code>grupo/nombre</code>.
+                    Ejemplos:
+                </p>
+                <ul>
+                    <li><code>core/bardcanvas_core</code> para el núcleo.</li>
+                    <li><code>core_modules/accounts</code> para el módulo de Administración de Cuentas de Usuario.</li>
+                    <li><code>templates_base/blue_network</code> para la plantilla "Blue Network".</li>
+                </ul>
+                <p>
+                    Si sabes el identificador, especifícalo aquí debajo. Si no, date una vuelta por
+                    la <a href="https://bardcanvas.com/" target="_blank">Librería de BardCanvas</a>
+                    para ver los componentes que hemos ido documentando y puedas obtener su identificador.
+                </p>
+            ]]></info>
+            <input_placeholder>Introduce grupo/nombre</input_placeholder>
+            <install>Instalar</install>
+            <enter_a_package_identifier>Por favor especifica un paquete a instalar</enter_a_package_identifier>
+        </manual>
+        <remote>
+            <title>Instalación remota</title>
+            <info><![CDATA[
+                <p style="margin-top: 0">
+                    En el <a href="https://bardcanvas.com" target="_blank">Sitio Oficial de BardCanvas</a>
+                    hemos implementado un 
+                    <a href="https://bardcanvas.com/bardcanvas-updates-2017-07-03#site_manager" target="_blank">módulo 
+                    experimental de instalación remota</a>.<br><br>
+                    Para poder hacer uso de él:
+                </p>
+                <ol>
+                    <li>Registra una cuenta en bardcanvas.com</li>
+                    <li>Edita tus preferencias y agrega tus sitios web.</li>
+                    <li>Busca un módulo en la librería y usa el control para instalación remota.</li>
+                </ol>
+                <p>
+                    <a href="http://bardcanvas.com/accounts/register.php" target="_blank">Da click aquí</a>
+                    para registrar una cuenta ahora.
+                </p>
+            ]]></info>
+        </remote>
+    </component_addition>
+    
+    <settings_data>
+        
+        <title>Actualizaciones</title>
+        
+        <specs key="server_url">
+            <title>URL del servidor de actualizaciones</title>
+            <description><![CDATA[
+                Por defecto, la URL del sitio web de BardCanvas se usa para las descargas automáticas.<br>
+                Si deseas descargar actualizaciones de otro servidor, especifica aquí la URL.
+                Asegúrate de prefijar <code>http://</code> o <code>https://</code>
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <specs key="client_token">
+            <title>Token de acceso</title>
+            <description><![CDATA[
+                Los tokens sólo son necesarios si has comprado algún paquete o módulo comercial para BardCanvas.
+                De tener un token, es necesario especificarlo aquí, o no podrás descargar actualizaciones.<br>
+                <i class="fa fa-info-circle"></i>
+                <b>Nota:</b> es posible que algunos módulos requieran tokens por separado. En tal caso,
+                por favor revisa la documentación de estos.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <specs key="no_engine_automatic_updates">
+            <title>Desactivar actualizaciones del núcleo</title>
+            <description><![CDATA[
+                Por defecto, el núcleo de BardCanvas se actualizará automáticamente.
+                Desactiva esta opción para sólo proceder con actualizaciones manuales.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="no_modules_automatic_updates">
+            <title>Desactivar actualizaciones de módulos</title>
+            <description><![CDATA[
+                Por defecto, todos los módulos <b>activos</b> se actualizarán automáticamente.
+                Desactiva esta opción para sólo proceder con actualizaciones manuales.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="no_templates_automatic_updates">
+            <title>Desactivar actualizaciones de plantillas</title>
+            <description><![CDATA[
+                Por defecto, todas las plantillas instaladas se actualizarán automáticamente.
+                Desactiva esta opción para sólo proceder con actualizaciones manuales.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="last_check" is_locked="true">
+            <title>Último chequeo</title>
+            <description><![CDATA[
+                Fecha del último chequeo de actualizaciones. Sólo lectura.
+            ]]></description>
+        </specs>
+        
+    </settings_data>
+    
+</language>

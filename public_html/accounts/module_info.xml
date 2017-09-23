@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.15.3</version>
+    <group>core_modules</group>
+    <admin_only>false</admin_only>
+    
+    <working_flags>
+        <install>false</install>
+        <uninstall>false</uninstall>
+        <enable>false</enable>
+        <disable>false</disable>
+    </working_flags>
+    
+    <menu_items>
+        <item>
+            <caption_language_var>admin_menu_caption</caption_language_var>
+            <url></url>
+        </item>
+    </menu_items>
+
+    <php_includes>
+        <bootstrap>bootstrap.inc</bootstrap>
+    </php_includes>
+
+    <template_includes>
+        <html_head>head_scripts_preload.tpl.inc</html_head>
+        <header_menu>header_menu.tpl.inc</header_menu>
+        <post_footer>dialog_defs.tpl.inc</post_footer>
+    </template_includes>
+    
+    <widgets>
+        <widget for="right_sidebar" id="login" type="php" is_clonable="false" file="right_sidebar_login.inc" />
+        <widget for="left_sidebar"  id="meta"  type="php" is_clonable="false" file="left_sidebar_meta.inc"
+                added_classes="account_meta" />
+    </widgets>
+    
+    <extension_areas_info><![CDATA[
+        Registration: after initializing submitted data, after confirmation.
+        Profile edition: after initializing submitted data.
+        Records browser: Before running query, Additional scripts, Before loop start, per row actions, pre-EOF.
+        Accounts Repository: account deletion.
+        Login: pre-validations, additional login error messages (in dialog defs).
+        Prefs editor: script preloads.
+        Prefs editor: before saving, after saving.
+        Login form: top, before submit button
+    ]]></extension_areas_info>
+    
+</module>

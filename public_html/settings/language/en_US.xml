@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Settings editor</display_name>
+    <icon>fa-gears</icon>
+    <description>
+        System settings editor.
+    </description>
+    
+    <back_to_top>Back to top</back_to_top>
+    <lookup_caption>Lookup on settings</lookup_caption>
+    <please_select_an_option>Please select an option</please_select_an_option>
+    
+    <admin>
+        <menu_items>
+            <admin_menu_caption>Settings</admin_menu_caption>
+        </menu_items>
+        <record_nav>
+            <page_title>Settings manager</page_title>
+            <show_all>Show all</show_all>
+            <orphan>Orphan/undefined</orphan>
+            <save_now>Save now</save_now>
+            <errors>
+                <empty_val>Setting "{$name}" cannot have an empty value. Please check it.</empty_val>
+                <var_ok>Setting "{$name}" saved.</var_ok>
+                <var_deleted>Setting "{$name}" deleted.</var_deleted>
+            </errors>
+        </record_nav>
+        <undefined_settings><![CDATA[
+            <b>Warning!</b>
+            The next settings were found in the database but no specs have been found on installed modules.<br>
+            Please be careful when editing them.
+        ]]></undefined_settings>
+        <wrong_type><![CDATA[
+            This setting has an incorrect type syntax (it starts with an <code>@</code>, but
+            no module/extension point is specified. The type must be checked on the module's language file.
+        ]]></wrong_type>
+        <missing_extender><![CDATA[
+            This setting has an extender requirement, but the module wasn't found.<br>
+            Requested module: <span class="framed_content inlined">{$module}</span><br>
+            Hook area: <span class="framed_content inlined">{$area}</span><br>
+            Hook marker: <span class="framed_content inlined">{$marker}</span><br>
+            You may need to install/enable that module to natively edit this value.
+        ]]></missing_extender>
+    </admin>
+    
+    <add>
+        <caption>Add custom...</caption>
+        <prompt><![CDATA[
+            Type an identifier/key for the variable.
+            Use only alphanumeric lowercase chars,
+            underscores, dots and semicolons.
+             
+            You should prefix it with an underscore to avoid
+            any collission with standard variables.
+        ]]></prompt>
+        <name_not_provided>Please provide a name for the variable.</name_not_provided>
+        <name_already_exists>The name you provided already exists.</name_already_exists>
+    </add>
+    
+    <select>Select</select>
+    <preview>Preview...</preview>
+    <website>Website</website>
+    <no_author_specified>No author specified</no_author_specified>
+    <get_more_templates>Get more templates from BardCanvas.com</get_more_templates>
+    
+</language>

@@ -1,0 +1,61 @@
+a:5:{s:18:"Notifications core";a:1:{s:26:"!core:silent_notifications";s:242:"<specs key="silent_notifications">
+            <title>Silent notifications?</title>
+            <description><![CDATA[
+                Disable notification sounds.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>";}s:21:"Comment notifications";a:3:{s:32:"@comments:email_on_post_comments";s:328:"<specs key="email_on_post_comments" selector_default="true">
+            <title>Email me on post comments</title>
+            <description><![CDATA[
+                Receive an email when someone else comments your post (it doesn't apply to replies)
+            ]]></description>
+            <type>boolean</type>
+        </specs>";s:34:"@comments:email_on_comment_replies";s:305:"<specs key="email_on_comment_replies" selector_default="true">
+            <title>Email me on comment replies</title>
+            <description><![CDATA[
+                Receive an email when someone else replies your comments
+            ]]></description>
+            <type>boolean</type>
+        </specs>";s:39:"@comments:moderator_emails_for_comments";s:595:"<specs key="moderator_emails_for_comments" selector_default="true" min_account_level="200">
+            <title>Email me when new comments are added</title>
+            <description><![CDATA[
+                <span class="framed_content inlined state_highlight">
+                    <span class="fa fa-info-circle"></span>
+                    Mods/admins only
+                </span>
+                Receive an email with the comment and the context.
+                Applies to comments from everyone except your own.
+            ]]></description>
+            <type>boolean</type>
+        </specs>";}s:5:"Email";a:1:{s:21:"@contact:allow_emails";s:492:"<specs key="allow_emails" selector_default="true">
+            <title>Allow everyone to email me</title>
+            <description><![CDATA[
+                By default, everyone can send emails to our users using the contact form
+                <b>without exposing email addresses</b>.
+                If you don't want to receive emails from everyone (except mods/admins),
+                turn this setting off.
+            ]]></description>
+            <type>boolean</type>
+        </specs>";}s:21:"Gallery notifications";a:1:{s:35:"@gallery:moderator_emails_for_media";s:652:"<specs key="moderator_emails_for_media" selector_default="true" min_account_level="200">
+            <title>Email me when new media items are published</title>
+            <description><![CDATA[
+                <span class="framed_content inlined state_highlight">
+                    <span class="fa fa-info-circle"></span>
+                    Mods/admins only
+                </span>
+                Receive an email with the description and a preview of the media item being published (if possible).
+                Applies to submissions from everyone except your own.
+            ]]></description>
+            <type>boolean</type>
+        </specs>";}s:18:"Post notifications";a:1:{s:33:"@posts:moderator_emails_for_posts";s:594:"<specs key="moderator_emails_for_posts" selector_default="true" min_account_level="200">
+            <title>Email me when new posts are published</title>
+            <description><![CDATA[
+                <span class="framed_content inlined state_highlight">
+                    <span class="fa fa-info-circle"></span>
+                    Mods/admins only
+                </span>
+                Receive an email with the excerpt and some statistics.
+                Applies to posts from everyone except your own.
+            ]]></description>
+            <type>boolean</type>
+        </specs>";}}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    
+    <name>Orange Network</name>
+    <version>1.6.6</version>
+    <group>templates_base</group>
+    
+    <description>
+        Kinda based on Twitter
+    </description>
+    
+    <notes><![CDATA[
+        Base color: FF6600 ~ Orange
+        Extra:      bf5200 ~ Darker orange
+        Base left : FF0900 ~ Red
+        Base right: FF9600 ~ Lighter orange
+        Complement: 009AC2 ~ Blueish cyan
+        
+        Fonts (all sans):
+        • Body:          Raleway
+        • Table cells:   Roboto, Roboto Condensed
+        • Fixed width:   Ubuntu Mono
+        • Headings:      Oswald
+    ]]></notes>
+    
+    <tags>responsive, facebook clone, wordpress clone, mobile, desktop, multpile columns</tags>
+    
+    <author>
+        <company>LAVA SoftWorks</company>
+        <name>Alejandro Caballero</name>
+        <email>lava.caballero@gmail.com</email>
+    </author>
+    
+    <website>https://bardcanvas.com/orange-network-template</website>
+    
+</template>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.11.1</version>
+    <group>modules_base</group>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <php_includes>
+        <bootstrap>extenders/media_functions.inc</bootstrap>
+        <document_handler>extenders/document_handler.inc</document_handler>
+        <rss_feed_generator handle_pattern="^media$">extenders/rss_feed_generator.inc</rss_feed_generator>
+    </php_includes>
+    
+    <template_includes>
+        <pre_rendering>pre_rendering_presets.inc</pre_rendering>
+        <html_head>global_header.inc</html_head>
+        <!--<pre_header></pre_header>-->
+        <!--<header_top></header_top>-->
+        <header_menu>header_buttons.inc</header_menu>
+        <!--<header_bottom></header_bottom>-->
+        <!--<content_top></content_top>-->
+        <!--<home_content></home_content>-->
+        <!--<content_bottom></content_bottom>-->
+        <!--<post_footer></post_footer>-->
+        <!--<footer_top></footer_top>-->
+        <!--<footer_bottom></footer_bottom>-->
+        <post_footer>post_footer.inc</post_footer>
+        <!--<pre_eof></pre_eof>-->
+        <!--<post_rendering></post_rendering>-->
+    </template_includes>
+    
+    <tinymce_additions minimum_user_level="10">
+        <css>media/tinymce_internal_styles~v1.css</css>
+        <plugin name="insert_gallery_image_in_tinymce">media/image_plugin~v1.3.2.js</plugin>
+        <plugin name="insert_gallery_video_in_tinymce">media/video_plugin~v1.3.2.js</plugin>
+        <toolbar>insert_gallery_image_in_tinymce insert_gallery_video_in_tinymce</toolbar>
+    </tinymce_additions>
+
+    <extension_areas_info><![CDATA[
+        Saving: post item saving.
+        Toolbox: after publishing.
+    ]]></extension_areas_info>
+    
+    <extends_to>
+        <settings>
+            <specs_renderer>
+                <preinits>extenders/settings_preinits.inc</preinits>
+                <image_selector>extenders/settings_image_selector.inc</image_selector>
+            </specs_renderer>
+        </settings>
+        <search>
+            <search_by_tag>
+                <collection_builder>extenders/search_by_tag_builder.inc</collection_builder>
+            </search_by_tag>
+        </search>
+        <contact>
+            <index>
+                <pre_start>extenders/contact_index_pre_start.inc</pre_start>
+            </index>
+            <form>
+                <presets>extenders/contact_form_report_presets.inc</presets>
+            </form>
+        </contact>
+        <accounts>
+            <records_browser>
+                <additional_headers    priority="110">extenders/accounts/browser_headers.inc</additional_headers>
+                <additional_columns    priority="110">extenders/accounts/browser_columns.inc</additional_columns>
+                <presettings_data      priority="110">extenders/accounts/browser_presets.inc</presettings_data>
+                <principal_data_addons priority="110">extenders/accounts/principal_data_addons.inc</principal_data_addons>
+            </records_browser>
+            <toolbox>
+                <enable_account>extenders/accounts/toolbox_enable_account.inc</enable_account>
+                <disable_account>extenders/accounts/toolbox_disable_account.inc</disable_account>
+            </toolbox>
+            <accounts_repository>
+                <delete>extenders/accounts/account_deletion.inc</delete>
+            </accounts_repository>
+        </accounts>
+        <triklet>
+            <home_form>
+                <presets>extenders/triklet_form_report_presets.inc</presets>
+            </home_form>
+        </triklet>
+    </extends_to>
+    
+</module>

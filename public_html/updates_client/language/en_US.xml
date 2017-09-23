@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+
+    <display_name>Updates client</display_name>
+    <icon>fa-download</icon>
+    <description>
+        Updates checker and installer
+    </description>
+    
+    <document_root_not_writable>Document root is read only.</document_root_not_writable>
+    <engine_updates_disabled>Engine updates disabled.</engine_updates_disabled>
+    <template_updates_disabled>Template updates disabled.</template_updates_disabled>
+    <module_updates_disabled>Module updates disabled.</module_updates_disabled>
+    
+    <modules_manager>
+        <buttons>
+            <check_updates>Check updates...</check_updates>
+            <add_component>Install...</add_component>
+        </buttons>
+        <no_updates_detected>No updates have been detected.</no_updates_detected>
+        <package_not_found>Package not found on the BardCanvas registry. Please check the group/name and try again. If the problem persists, please ask for support at bardcanvas.com</package_not_found>
+        <package_already_installed>The provided package has already been installed on this website</package_already_installed>
+        <warning><![CDATA[
+            <b>Warning:</b> the document root of your website doesn't seems not be writable by the web updater.<br>
+            You may get errors when attempting to apply updates through the web browser.
+            In such case, you'll need set a cron job to run at least every day to make it check, download and apply updates.
+        ]]></warning>
+        <new_version_found><![CDATA[
+            New version found: <span class="new_version">N/A</span><br>
+            <a class="changelog_link" href="" target="_blank"><i class="fa fa-file-text-o"></i> View changelog</a>
+            <span class="pseudo_link" onclick="update_component(this)"><i class="fa fa-check"></i> Update now</span>
+        ]]></new_version_found>
+    </modules_manager>
+    
+    <component_addition>
+        <title>Install BardCanvas package</title>
+        <info><![CDATA[
+            <p style="margin-top: 0">
+                Actually, there's no component catalog available (we're working on it),
+                nevertheless, we provide two ways for you to install modules or templates in your website.
+            </p>
+        ]]></info>
+        <manual>
+            <title>Manual package addition</title>
+            <info><![CDATA[
+                <p style="margin-top: 0">
+                    A BardCanvas package is identified as <code>group/name</code>. Examples:
+                </p>
+                <ul>
+                    <li><code>core/bardcanvas_core</code> for the core.</li>
+                    <li><code>core_modules/accounts</code> for the User Accounts module.</li>
+                    <li><code>templates_base/blue_network</code> for the "Blue Network" template.</li>
+                </ul>
+                <p>
+                    If you know the identifier, specify it below. If don't, take a look at the
+                    <a href="https://bardcanvas.com/" target="_blank">BardCanvas Library</a>.
+                    You will find there all the components we've documented and their identifiers.
+                </p>
+            ]]></info>
+            <input_placeholder>Enter group/name</input_placeholder>
+            <install>Install</install>
+            <enter_a_package_identifier>Please specify a package to install</enter_a_package_identifier>
+        </manual>
+        <remote>
+            <title>Remote depoyment</title>
+            <info><![CDATA[
+                <p style="margin-top: 0">
+                    At the <a href="https://bardcanvas.com" target="_blank">BardCanvas website</a>
+                    we've implemented an experimental
+                    <a href="https://bardcanvas.com/bardcanvas-updates-2017-07-03#site_manager" target="_blank">remote 
+                    deployment module</a>.<br><br>
+                    You can use it for free, but you must:
+                </p>
+                <ol>
+                    <li>Register an account at bardcanvas.com</li>
+                    <li>Edit your preferences and add your websites.</li>
+                    <li>Search for a module on the library and use the control there to check and deploy remotely.</li>
+                </ol>
+                <p>
+                    <a href="http://bardcanvas.com/accounts/register.php" target="_blank">Click here</a>
+                    to register an account now.
+                </p>
+            ]]></info>
+        </remote>
+    </component_addition>
+    
+    <settings_data>
+        
+        <title>Updates</title>
+        
+        <specs key="server_url">
+            <title>Updates server URL</title>
+            <description><![CDATA[
+                By default, the BardCanvas website URL is set for downloading automatic updates.<br>
+                If you want to set a different server, please specify it here.
+                Make sure it starts with <code>http://</code> or <code>https://</code>
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <specs key="client_token">
+            <title>Updates access token</title>
+            <description><![CDATA[
+                Tokens are only needed if you purchase any commercial bundle or module for BardCanvas.
+                If you have a token, then specify it here, or you wont be able to get
+                automatic updates.<br>
+                <i class="fa fa-info-circle"></i>
+                <b>Note:</b> some modules may need you to specify a token for them. In such case,
+                please review the documentation for those modules.
+            ]]></description>
+            <type>text</type>
+        </specs>
+        
+        <specs key="no_engine_automatic_updates">
+            <title>Disable engine automatic updates</title>
+            <description><![CDATA[
+                By default, automatic engine updates are enabled.
+                Turn them off if you want to do it manually all the time.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="no_modules_automatic_updates">
+            <title>Disable modules automatic updates</title>
+            <description><![CDATA[
+                By default, automatic updates for all active modules are enabled.
+                Turn them off if you want to do it manually all the time.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="no_templates_automatic_updates">
+            <title>Disable templates automatic updates</title>
+            <description><![CDATA[
+                By default, automatic updates for all installed templates are enabled.
+                Turn them off if you want to do it manually all the time.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <specs key="last_check" is_locked="true">
+            <title>Last checked</title>
+            <description><![CDATA[
+                Date of the last updates check. Read only.
+            ]]></description>
+        </specs>
+        
+    </settings_data>
+    
+</language>

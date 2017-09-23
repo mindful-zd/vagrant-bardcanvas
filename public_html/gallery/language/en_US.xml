@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Media Gallery</display_name>
+    <icon>fa-picture-o</icon>
+    <description>
+        Subsystem for images/videos management, embedding and delivery.
+    </description>
+    
+    <index>
+        <title>Media Gallery</title>
+        <menu_caption>Media</menu_caption>
+        <buttons>
+            <add>Upload</add>
+        </buttons>
+    </index>
+    
+    <form_initial_info_for_posts><![CDATA[
+        Individual media items <b>are not tied to any document or post</b> after being uploaded directly.<br>
+        If you want your items to be available on main indexes, <b>cancel now</b> and create a post
+        from the <u>posts browser</u>.<br>
+        From there, use the buttons on the editor toolbar to upload and insert images or videos <b>inside the post</b>.<br>
+        <span style="color: red; font-weight: bold;">Ignoring this will cause your media to be ignored in the main indexes.</span>
+    ]]></form_initial_info_for_posts>
+    
+    <pages>
+        <by_category>
+            <title>Media in {$category}</title>
+            <no_records>No items have been found for this category.</no_records>
+        </by_category>
+        <by_date>
+            <title>Media published on {$date}</title>
+            <no_records>No items have been found for this date range.</no_records>
+        </by_date>
+        <by_author>
+            <title>{$type} published by {$author}</title>
+            <types>
+                <any>Media</any>
+                <image>Images</image>
+                <video>Videos</video>
+            </types>
+            <no_records>No items have been published by this author.</no_records>
+        </by_author>
+        <by_tag>
+            <title>Media tagged with #{$tag}</title>
+            <no_records><![CDATA[
+                No media items have been found with this tag. Try looking at <a href="{$link}">tagged posts</a>!
+            ]]></no_records>
+        </by_tag>
+    </pages>
+    
+    <extenders>
+        <search_by_tag_builder>
+            <collection_heading>Images/videos</collection_heading>
+        </search_by_tag_builder>
+    </extenders>
+    
+    <media_types>
+        <all>All media types</all>
+        <media type="image">
+            <icon>fa-picture-o</icon>
+            <caption>Image</caption>
+            <plural>Images</plural>
+        </media>
+        <media type="video">
+            <icon>fa-video-camera</icon>
+            <caption>Video</caption>
+            <plural>Videos</plural>
+        </media>
+    </media_types>
+    
+    <record_nav>
+        <modes>
+            <tiles>Switch to tiles mode</tiles>
+            <table>Switch to table mode</table>
+        </modes>
+        <search_placeholder>Search by id, slug, title, description or #tags</search_placeholder>
+        <columns>
+            <title>
+                <caption>Title</caption>
+                <layout xnowrap="true" />
+            </title>
+            <description>
+                <caption><![CDATA[ Description &amp; details ]]></caption>
+                <layout xnowrap="true" />
+            </description>
+            <author>
+                <caption>Author</caption>
+                <layout xnowrap="true" />
+            </author>
+            <publishing_date>
+                <caption>Published</caption>
+                <layout xalign="center" xnowrap="true" />
+                <order_asc  id="1">Order by publishing date ascending</order_asc>
+                <order_desc id="2">Order by publishing date descending</order_desc>
+            </publishing_date>
+            <last_update>
+                <caption>Last activity</caption>
+                <layout xalign="center" xnowrap="true" />
+                <order_asc  id="3">Order by last activity update ascending</order_asc>
+                <order_desc id="4">Order by last activity update descending</order_desc>
+            </last_update>
+            <views>
+                <caption><![CDATA[ <span class="fa fa-eye fa-fw"></span> ]]></caption>
+                <layout xnowrap="true" />
+                <order_asc  id="5">Order by views ascending</order_asc>
+                <order_desc id="6">Order by views descending</order_desc>
+            </views>
+            <featured_image>
+                <caption>Preview</caption>
+                <layout xnowrap="true" xalign="center" xwidth="200"/>
+            </featured_image>
+        </columns>
+        <actions>
+            <edit>Edit</edit>
+            <trash>Trash</trash>
+            <approve>Approve</approve>
+            <reject>Reject</reject>
+        </actions>
+        <filters>
+            <from_everyone>By everyone</from_everyone>
+            <mine>Mine</mine>
+            <from_user>By {$user}</from_user>
+            <any_status>All</any_status>
+        </filters>
+    </record_nav>
+    
+    <status_labels>
+        <draft>Draft</draft>
+        <published>Published</published>
+        <reviewing>Reviewing</reviewing>
+        <hidden>Hidden</hidden>
+        <trashed>Trashed</trashed>
+    </status_labels>
+    
+    <visibility_options>
+        <public>Public</public>
+        <private>Private</private>
+        <users>Users</users>
+        <friends>Friends</friends>
+        <level_based>Level Based</level_based>
+    </visibility_options>
+    
+    <form>
+        <add_title>Upload media item</add_title>
+        <edit_title>Editing media item details</edit_title>
+        <fields>
+            <title>
+                <placeholder>Enter a title for the item</placeholder>
+            </title>
+            <file>
+                <caption>Select a file to upload:</caption>
+                <info><![CDATA[
+                    Select the file to upload.
+                    Maximum upload size is <span class="framed_content inlined">{$size} MB</span>
+                    and file types allowed are {$types}
+                ]]></info>
+            </file>
+            <description>
+                <placeholder>Type a short description for the item. You can add #hashtags as you normally do everywhere.</placeholder>
+            </description>
+        </fields>
+        
+        <buttons>
+            <save_draft>Save draft</save_draft>
+            <publish>Publish</publish>
+        </buttons>
+    </form>
+    
+    <messages>
+        <pending>There are {$amount} items flagged for review. Click here to see them.</pending>
+        <missing>
+            <id>Please provide an item id</id>
+            <title>Please specify a title for the item</title>
+            <main_category>Please specify a main category for the item</main_category>
+            <file>You haven't chosen a file to upload.</file>
+        </missing>
+        <no_urls_in_title>URLs aren't admitted in the title</no_urls_in_title>
+        <invalid>
+            <file>The file you uploaded isn't valid. Please make sure you're uploading a valid file type.</file>
+            <upload>Invalid upload detected. Please try again.</upload>
+            <invalid_type_for_image>Please select an image.</invalid_type_for_image>
+            <invalid_type_for_video>Please select a video file.</invalid_type_for_video>
+        </invalid>
+        <item_not_found>The item wasn't found in the database</item_not_found>
+        <item_not_yours>The item isn't yours.</item_not_yours>
+        <item_exists>The media item you're uploading already exists in the database</item_exists>
+        <cannot_create_directory>Can't create media container directory. Please notify the tech support staff.</cannot_create_directory>
+        <media_manager_exception><![CDATA[
+            The media manager has thrown an exception:
+             
+            Invoked class:
+                {$class}
+             
+            Message:
+                {$exception}
+             
+            Please contact the tech support staff.
+        ]]></media_manager_exception>
+        <items_hidden>{$count} media items from {$author} have been hidden.</items_hidden>
+        <items_unhidden>{$count} media items from {$author} have been restored.</items_unhidden>
+        <toolbox>
+            <invalid_action>The provided action is invalid</invalid_action>
+            <action_not_allowed>Sorry, but your privileges aren't enough to carry on this action</action_not_allowed>
+            <published_ok><![CDATA[
+                Media item "{$title}" has been accepted.<br>
+                <a href="{$link}">Click here to check it.</a>
+            ]]></published_ok>
+            <rejected_ok><![CDATA[
+                Media item "{$title}" has been rejected. It has been removed from public view.<br>
+                If you think this was an error, please contact the staff using the contact page.
+            ]]></rejected_ok>
+            <flagged_for_review_ok><![CDATA[
+                Media item "{$title}" has been flagged for review. It has been removed from public view.<br>
+                If you think this was an error, please contact the staff using the contact page.
+            ]]></flagged_for_review_ok>
+            <trashed_ok><![CDATA[
+                Media item "{$title}" has been deleted.<br>
+                If you think this was an error, please contact the staff using the contact page.
+            ]]></trashed_ok>
+        </toolbox>
+    </messages>
+    
+    <tinymce_strings>
+        <browser_dialog_title>Media gallery browser</browser_dialog_title>
+        <insert_image>Insert image from media gallery</insert_image>
+        <insert_video>Insert video from media gallery</insert_video>
+        <media_type_not_supported>Sorry, but the item type you selected isn't currently supported. It can't be inserted.</media_type_not_supported>
+        <invalid_type_selected>The item type is invalid. Please select an image.</invalid_type_selected>
+        <select_image>Select image from media gallery</select_image>
+        <select_video>Select video from media gallery</select_video>
+    </tinymce_strings>
+    
+    <settings_data>
+        <title>Media options</title>
+        <specs key="items_per_page">
+            <title>Items to show per index page</title>
+            <description><![CDATA[
+                Amount of media items to show per index (home, archives, etc.).<br>
+                Defaults to <code>30</code>.
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>1</min>
+                <max>255</max>
+            </options>
+        </specs>
+        <specs key="excerpt_length">
+            <title>Description excerpt length</title>
+            <description><![CDATA[
+                Amount of characters to show from the item description on index pages.<br>
+                Defaults to <code>30</code>.
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>30</min>
+                <max>250</max>
+            </options>
+        </specs>
+        <specs key="max_item_width">
+            <title>Maximum item display width</title>
+            <description><![CDATA[
+                This number is the default set to
+                images and videos at the time they're inserted in the HTML editor.<br>
+                Defaults to <code>720</code>px.<br>
+                <span class="fa fa-info-circle"></span>
+                This value may be overrriden by any responsive template.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="use_triklet_for_reporting">
+            <title>Use Triklet module for reporting media items?</title>
+            <description><![CDATA[
+                If the Triklet module is installed and enabled and this option is set to "Yes",
+                online users that hit the "report media" link will be redirected to Triklet's New Ticket composition form
+                instead of going to the Contact form.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+    </settings_data>
+    
+    <user_profile_tabs>
+        <tab mode="images" priority="201">Images</tab>
+        <tab mode="videos" priority="202">Videos</tab>
+        <tab mode="media"  priority="203">All media</tab>
+    </user_profile_tabs>
+    
+    <rss_feed_generator>
+        <title>{$website_name} media feed</title>
+        <description>Latest media items published by all authors of {$website_name}</description>
+    </rss_feed_generator>
+    
+    <settings_image_selector>
+        <set>Set</set>
+        <remove>Remove</remove>
+    </settings_image_selector>
+    
+    <reporting>
+        <id_not_set>You didn't specify a valid media item ID to report.</id_not_set>
+        <not_found>The item you specified wasn't found. It may be already deleted.</not_found>
+        <already_processed>The item has already been processed and it was rejected. Theres' no need to report it again.</already_processed>
+        <in_review>The item is already being reviewed. There's no need to report it again.</in_review>
+        <subject>Spam/Inappropiate report for media item "{$item_title}" by {$item_author}</subject>
+        <content><![CDATA[
+            <p><b>Describe why you think this item should be reviewed:</b></p>
+            <ul><li><i>Type your reasons here</i></li></ul>
+            <hr>
+            Post written by {$item_author} on {$date}:<br>
+            <a href='{$permalink}'>{$permalink}</a>
+            <blockquote>{$description}</blockquote>
+        ]]></content>
+    </reporting>
+    
+    <accounts_nav_columns>
+        <media>
+            <caption><![CDATA[ <span class="fa fa-picture-o fa-fw"></span> ]]></caption>
+            <layout xnowrap="true" xalign="right" />
+            <order_asc  id="media_count_asc">Order by published media count ascending</order_asc>
+            <order_desc id="media_count_desc">Order by published media count descending</order_desc>
+        </media>
+        <principal_data><![CDATA[
+            <div class="media_bullet">
+                <span class="bullet fa fa-picture-o fa-fw"></span>
+                Last media item: [{$time}, {$type}, {$status}] <a href="{$url}" target="_blank">{$title}</a>
+            </div>
+        ]]></principal_data>
+    </accounts_nav_columns>
+    
+    <multi_actions>
+        <trash>Trash</trash>
+        <reject>Reject</reject>
+        <publish>Publish</publish>
+        <review>For review</review>
+        <confirmation><![CDATA[
+            {$amount} elements will be changed to "{$new_flag}".
+             
+            • All those with the same flag will be ignored.
+            • All will be processed in parallel and will be removed from view.
+            • Don't navigate out of this page until all requests are fulfilled.
+            • Once finished, you'll be notified and the browser will be refreshed.
+            • This cannot be undone.
+             
+            Do you want to continue?
+        ]]></confirmation>
+        <none_selected>Select at least one row to trigger the chosen action.</none_selected>
+        <done>All actions have been processed. The records browser will be refreshed now.</done>
+    </multi_actions>
+    
+    <email_templates>
+        <media_item_submitted>
+            <subject>[{$website_name}/Moderators] New {$type} from {$item_author}: {$title}</subject>
+            <body><![CDATA[
+                <p>{$item_author} has published a {$type} item.</p>
+                
+                <p>Title:</p>
+                <blockquote>
+                    <a href="{$item_url}">{$title}</a>
+                </blockquote>
+                
+                <p>Thumbnail:</p>
+                <blockquote>
+                    <a href="{$item_url}"><img height="200" border="1" src="{$thumbnail}"></a>
+                </blockquote>
+                
+                <p>Description:</p>
+                <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                    {$description}
+                </blockquote>
+                
+                <p>Submission info:</p>
+                <ul>
+                    <li>User IP: {$ip}</li>
+                    <li>Location data: {$location}</li>
+                    <li>Browser: {$user_agent}</li>
+                </ul>
+                
+                <p>Last 12 items from the same network segment during the last 7 days:</p>
+                <blockquote>
+                    {$other_from_segment}
+                </blockquote>
+                
+                <p>Available actions:</p>
+                <ul>
+                    <li><a href="{$item_url}">See the item page</a>.</li>
+                    <li><a href="{$edit_url}"><b>Review</b></a> the item in the editor.</li>
+                    <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                </ul>
+                
+                <p>Regards,<br>
+                {$website_name}</p>
+            ]]></body>
+            <none_found>None found</none_found>
+            <none_defined>None defined</none_defined>
+        </media_item_submitted>
+    </email_templates>
+    
+    <engine_prefs>
+        <title>Gallery notifications</title>
+        
+        <!-- The next ones are for mods and up -->
+        <specs key="moderator_emails_for_media" selector_default="true" min_account_level="200">
+            <title>Email me when new media items are published</title>
+            <description><![CDATA[
+                <span class="framed_content inlined state_highlight">
+                    <span class="fa fa-info-circle"></span>
+                    Mods/admins only
+                </span>
+                Receive an email with the description and a preview of the media item being published (if possible).
+                Applies to submissions from everyone except your own.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+    </engine_prefs>
+    
+    <empty_trash>
+        <caption>Empty...</caption>
+        <confirmation><![CDATA[
+            Warning: emptying the media trash may take several seconds.
+            Once started, the process can't be interrupted,
+            and it can't be undone.
+             
+            All records older than 7 days will be deleted.
+             
+            Do you want to continue?
+        ]]></confirmation>
+    </empty_trash>
+    
+</language>

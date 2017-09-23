@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Modules manager</display_name>
+    <icon>fa-puzzle-piece</icon>
+    <description>
+        Administrative modules manager, used to install, uninstall, enable or disable modules.
+    </description>
+    
+    <admin>
+        <menu_items>
+            <admin_menu_caption>Modules</admin_menu_caption>
+        </menu_items>
+    </admin>
+    
+    <buttons>
+        <purge_cache>
+            <caption>Purge cache</caption>
+            <title>Remove the cached modules collection and force regeneration</title>
+        </purge_cache>
+        <toggle_cache>
+            <enable>Enable cache</enable>
+            <disable>Disable cache</disable>
+        </toggle_cache>
+    </buttons>
+    
+    <page_title>Modules manager</page_title>
+    
+    <core_components>
+        <core>
+            <display_name>BardCanvas Core</display_name>
+            <icon>fa-cog</icon>
+            <description>The BardCanvas Core Package</description>
+        </core>
+        <lib>
+            <display_name>BardCanvas Library</display_name>
+            <icon>fa-cog</icon>
+            <description>BardCanvas dependencies library</description>
+        </lib>
+    </core_components>
+    
+    <search>Search in modules</search>
+    <filter_tabs>
+        <tab for="all_modules"       >All</tab>
+        <tab for="flag_installed"    >Installed</tab>
+        <tab for="flag_not_installed">Not installed</tab>
+        <tab for="flag_enabled"      >Enabled</tab>
+        <tab for="flag_disabled"     >Disabled</tab>
+        <all_groups>All groups</all_groups>
+    </filter_tabs>
+    
+    <per_module_fields>
+        <action_buttons>
+            <install>Install</install>
+            <uninstall>Uninstall</uninstall>
+            <enable>Enable</enable>
+            <disable>Disable</disable>
+        </action_buttons>
+        <name>Name/key:</name>
+        <version>Version:</version>
+        <uploaded>(last update: {$time})</uploaded>
+        <group>Group:</group>
+        <admin_only>
+            <caption>Functionality:</caption>
+            <generic>Generic / accessible to everyone</generic>
+            <only_admins>Administrative / only admins can access it</only_admins>
+        </admin_only>
+        <working_flags>
+            <caption>Work flags:</caption>
+            <install>
+                <true>Can be installed</true>
+                <false>Core component</false>
+            </install>
+            <uninstall>
+                <true>Can be uninstalled</true>
+                <false>Cannot be uninstalled</false>
+            </uninstall>
+            <enable>
+                <true>Can be enabled</true>
+                <false>Cannot be enabled</false>
+            </enable>
+            <disable>
+                <true>Can be disabled</true>
+                <false>Cannot be disabled</false>
+            </disable>
+        </working_flags>
+        <menu_items>
+            <caption>Entries in admin menu:</caption>
+            <no_items>None</no_items>
+        </menu_items>
+        <php_includes>
+            <caption>System extensions:</caption>
+            <no_items>None</no_items>
+            <bootstrap>Engine bootstrap</bootstrap>
+            <document_handler>Document handler</document_handler>
+            <rss_feed_generator>RSS feed generator</rss_feed_generator>
+            <web_helper_before_send_mail>Web helper: before sending mail</web_helper_before_send_mail>
+            <notifications_getter>Notifications getter</notifications_getter>
+        </php_includes>
+        <template_includes>
+            <caption>Template extensions:</caption>
+            <no_items>None</no_items>
+            <always_on>CSS/JS files included always in the header.</always_on>
+            <pre_rendering>Before all output (before opening doctype)</pre_rendering>
+            <html_head><![CDATA[HTML &lt;head&gt;]]></html_head>
+            <pre_header>Before opening the header</pre_header>
+            <header_top>Inside the header, above the menu</header_top>
+            <header_menu>Menu entries</header_menu>
+            <header_bottom>Below the menu</header_bottom>
+            <pre_content>Before opening the main contents loop</pre_content>
+            <content_top>Above page contents</content_top>
+            <home_content>Contents of the home page</home_content>
+            <content_bottom>Below page contents</content_bottom>
+            <post_content>After closing the main contents loop</post_content>
+            <pre_footer>Before opening the footer (outside of the content)</pre_footer>
+            <footer_top>Above footer</footer_top>
+            <footer_bottom>Below footer</footer_bottom>
+            <post_footer>At the end of the document (outside the footer)</post_footer>
+            <pre_eof>Below the footer, before closing the body.</pre_eof>
+            <post_rendering>After closing the html.</post_rendering>
+        </template_includes>
+        <extends_to>
+            <caption>Modules it extends:</caption>
+            <no_data>None</no_data>
+        </extends_to>
+        <extension_areas_info>
+            <caption>Can be extended on the next areas:</caption>
+            <no_data>None</no_data>
+        </extension_areas_info>
+    </per_module_fields>
+    
+    <task_messages>
+        <module_not_provided>You didn't specify a module to work on.</module_not_provided>
+        <invalid_action>You specified an invalid maintenance action.</invalid_action>
+        <module_not_found>The specified module hasn't been found.</module_not_found>
+        <already_installed>The specified module is already installed.</already_installed>
+        <installed_ok>Module has been successfully installed.</installed_ok>
+        <installed_ko>Module wasn't installed.</installed_ko>
+        <already_enabled>The specified module is already enabled.</already_enabled>
+        <enabled_ok>Module has been successfully enabled.</enabled_ok>
+        <enabled_ko>Module wasn't enabled.</enabled_ko>
+        <not_installed>The specified module isn't installed.</not_installed>
+        <disabled_ko>Module wasn't disabled.</disabled_ko>
+        <disabled_ok>Module has been successfully disabled.</disabled_ok>
+        <uninstalled_ko>Module wasn't completely uninstalled.</uninstalled_ko>
+        <uninstalled_ok>Module has been sucessfully uninstalled.</uninstalled_ok>
+        <not_enabled>The specified module is not enabled.</not_enabled>
+        <all_ops_ok>The page will be reloaded now.</all_ops_ok>
+        <invalid_mode_specified>Invalid mode specified</invalid_mode_specified>
+        <issues_detected>Some issues have been detected!</issues_detected>
+        <successfull_actions>Successfull actions:</successfull_actions>
+        <failed_actions>Failed actions:</failed_actions>
+        <please_review>Please review the messages above and take proper measures to fix them.</please_review>
+    </task_messages>
+    
+    <settings_data>
+        <title>Modules manager</title>
+        <specs key="disable_cache" is_locked="true">
+            <title>Disable disk caching?</title>
+            <description><![CDATA[
+                Please go to the <a href="/modules_manager/">Modules Manager</a> to toggle caching on/off.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+    </settings_data>
+    
+</language>

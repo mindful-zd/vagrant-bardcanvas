@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <!-- #################################### -->
+    <!-- Settings module language definitions -->
+    <!-- #################################### -->
+    
+    <display_name>Contact subsystem</display_name>
+    <icon>fa-envelope-o</icon>
+    <description>
+        Components to send emails to users and contact admins
+    </description>
+    
+    <menu_caption>Contact</menu_caption>
+    
+    <settings_data>
+        <title>Contact form</title>
+        <specs key="hide_on_main_menu">
+            <title>Hide on main menu?</title>
+            <description><![CDATA[
+                If <code>Yes</code>, the link to the contact form will be hidden on the main menu.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+        <specs key="no_anonymous_emails">
+            <title>Only registered users can contact other users</title>
+            <description><![CDATA[
+                Enable this option if you want to avoid anonymous guests to send email
+                to registered users.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="csrf_for_guests">
+            <title>Enable CSRF protection for guests</title>
+            <description><![CDATA[
+                When enabled, this option will set a hidden token in the contact form
+                so automated submissions from spam bots are avoided.<br>
+                <i class="fa fa-warning"></i>
+                <b>Important:</b> some proxys or Data Saving capabilities in some browsers
+                may prevent authentic users to use the contact form.
+                It is recommended to keep this option disabled unless
+                you're constantly hit by spammy messages using the contact form.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+    </settings_data>
+    
+    <engine_prefs>
+        <title>Email</title>
+        
+        <specs key="allow_emails" selector_default="true">
+            <title>Allow everyone to email me</title>
+            <description><![CDATA[
+                By default, everyone can send emails to our users using the contact form
+                <b>without exposing email addresses</b>.
+                If you don't want to receive emails from everyone (except mods/admins),
+                turn this setting off.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+    </engine_prefs>
+    
+    <title>
+        <general>Send email to {$site_name}'s staff</general>
+        <targeted>Send email to {$site_name} user</targeted>
+    </title>
+    
+    <fields>
+        <target>Target:</target>
+        <name>Your name:</name>
+        <email>
+            <caption>Your email:</caption>
+            <info>
+                <general><![CDATA[
+                    Please verify that your email is correct before submitting the form,
+                    or you will never receive a reply from us.
+                ]]></general>
+                <targeted><![CDATA[
+                    <b>Warning: your email will be exposed to the user!</b>
+                    Please verify that your email is correct before submitting the form,
+                    or you may never receive a reply.
+                ]]></targeted>
+            </info>
+        </email>
+        <subject>Type a subject for your message</subject>
+        <content>Type the contents of your message</content>
+    </fields>
+    
+    <body><![CDATA[
+        <p>
+            Greetings, {$recipient_name}!
+        <p>
+        
+        <p>
+            {$sender_name} has sent you a message using {$website_name}'s contact form:
+        <p>
+        
+        <blockquote style="padding: 10px; background-color: whitesmoke; border-left: 5px solid gray;">
+            {$body}
+        </blockquote>
+        
+        <p>
+            Feel free to reply as you usually do with your emails if you wish to directly
+            reply to {$sender_email}.
+        </p>
+        
+        <p>
+            Regards,<br>
+            {$mailer_name} from {$website_name}.
+        </p>
+        
+        <hr>
+        <p>
+            Sent date: {$date}<br>
+            Origin host: {$origin_host}<br>
+            Origin location: {$origin_location}<br>
+            Referer: {$referer}<br>
+        </p>
+    ]]></body>
+    
+    <messages>
+        <missing_posting_token><![CDATA[
+            You can't bypass the contact form.
+            Direct sending is not allowed.
+            Note: if you're using some proxy or data saver
+            (Opera Turbo or Google Chrome's data saver)
+            You may need to disable it and try again.
+        ]]></missing_posting_token>
+        <empty_name>Please type your name.</empty_name>
+        <empty_email>Please type your email and make sure you can receive messages there.</empty_email>
+        <invalid_mail>Please provide a valid email address.</invalid_mail>
+        <invalid_captcha>Invalid captcha response. Please type the captcha code as it shows.</invalid_captcha>
+        <empty_subject>Please type a subject for your message.</empty_subject>
+        <empty_content>You should specify some contents for your message.</empty_content>
+        <invalid_target>Sorry, but the target account is either invalid or it doesn't exist in the database.</invalid_target>
+        <self_messages_not_allowed>Thou cannot send emails to thyself.</self_messages_not_allowed>
+        <user_cannot_be_emailed>Sorry, but this user doesn't accept emails.</user_cannot_be_emailed>
+        <sent_ok>Message has been successfully sent. The page will now reload.</sent_ok>
+        <guests_cant_email>Sorry, but anonymous guests can't email registered users.</guests_cant_email>
+    </messages>
+    
+</language>

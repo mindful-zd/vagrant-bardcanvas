@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Custom HTML for posts</display_name>
+    
+    <description><![CDATA[
+        Adds custom HTML code to single posts based on injections from custom fields
+    ]]></description>
+    
+</language>

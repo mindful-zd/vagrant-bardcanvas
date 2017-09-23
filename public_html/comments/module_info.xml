@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.11.4</version>
+    <group>modules_blog</group>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <php_includes>
+        <bootstrap>functions.inc</bootstrap>
+        <rss_feed_generator handle_pattern="^comments$">extenders/rss_feed_generator.inc</rss_feed_generator>
+        <media_repository_delete_multiple_if_unused>extenders/media_repository_delete_multiple_if_unused.inc</media_repository_delete_multiple_if_unused>
+        <media_repository_empty_trash>extenders/media_repository_empty_trash.inc</media_repository_empty_trash>
+    </php_includes>
+    
+    <template_includes>
+        <!--<pre_rendering></pre_rendering>-->
+        <html_head>html_head.inc</html_head>
+        <!--<pre_header></pre_header>-->
+        <!--<header_top></header_top>-->
+        <header_menu>header_buttons.inc</header_menu>
+        <!--<header_bottom></header_bottom>-->
+        <!--<content_top></content_top>-->
+        <!--<home_content></home_content>-->
+        <!--<content_bottom></content_bottom>-->
+        <!--<post_footer>global_post_footer.inc</post_footer>-->
+        <!--<footer_top></footer_top>-->
+        <!--<footer_bottom></footer_bottom>-->
+        <!--<post_footer></post_footer>-->
+        <!--<pre_eof></pre_eof>-->
+        <!--<post_rendering></post_rendering>-->
+    </template_includes>
+    
+    <extension_areas_info><![CDATA[
+        Adding comments: before saving, after saving.
+        Saving comments: before saving, after saving.
+        Comments repository class: preload authors, get for multiple posts, empty trash.
+        Comment Record Class: Get Processed Content.
+        Toolbox: After Publishing, After rejecting, After trashing, After flagging as spam, After hiding, After untrashing for review.
+        Browser: Main actions
+    ]]></extension_areas_info>
+    
+    <extends_to>
+        <posts>
+            <index_builders>
+                <!-- These are called from the repository -->
+                <home>extenders/prebuild_comments_for_posts_in_indexes.inc</home>
+                <author_index>extenders/prebuild_comments_for_posts_in_indexes.inc</author_index>
+                <category_index>extenders/prebuild_comments_for_posts_in_indexes.inc</category_index>
+                <date_archive>extenders/prebuild_comments_for_posts_in_indexes.inc</date_archive>
+            </index_builders>
+            <front>
+                <single_post_after_contents>extenders/single_post_after_contents.inc</single_post_after_contents>
+                <!-- This one is called after building collections in the repository: -->
+                <indexes_after_excerpt>extenders/comments_for_post_in_index.inc</indexes_after_excerpt>
+            </front>
+            <posts_repository_class>
+                <empty_trash>extenders/posts_repository_empty_trash.inc</empty_trash>
+            </posts_repository_class>
+        </posts>
+        <search>
+            <tags_cloud_widget>
+                <add_to_tag_counts>extenders/add_to_search_tags_cloud.inc</add_to_tag_counts>
+            </tags_cloud_widget>
+            <search_by_tag>
+                <collection_builder>extenders/search_by_tag_builder.inc</collection_builder>
+            </search_by_tag>
+        </search>
+        <contact>
+            <index>
+                <pre_start>extenders/contact_index_pre_start.inc</pre_start>
+            </index>
+            <form>
+                <presets>extenders/contact_form_report_presets.inc</presets>
+            </form>
+        </contact>
+        <accounts>
+            <records_browser>
+                <additional_headers    priority="120">extenders/accounts/browser_headers.inc</additional_headers>
+                <additional_columns    priority="120">extenders/accounts/browser_columns.inc</additional_columns>
+                <presettings_data      priority="120">extenders/accounts/browser_presets.inc</presettings_data>
+                <principal_data_addons priority="120">extenders/accounts/principal_data_addons.inc</principal_data_addons>
+            </records_browser>
+            <toolbox>
+                <enable_account>extenders/accounts/toolbox_enable_account.inc</enable_account>
+                <disable_account>extenders/accounts/toolbox_disable_account.inc</disable_account>
+            </toolbox>
+            <accounts_repository>
+                <delete>extenders/accounts/account_deletion.inc</delete>
+            </accounts_repository>
+        </accounts>
+        <gallery>
+            <records_browser>
+                <principal_data_addons priority="100">extenders/gallery/principal_data_addons.inc</principal_data_addons>
+            </records_browser>
+        </gallery>
+        <triklet>
+            <home_form>
+                <presets>extenders/triklet_form_report_presets.inc</presets>
+            </home_form>
+        </triklet>
+    </extends_to>
+    
+</module>

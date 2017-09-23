@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    
+    <name>Blue Network</name>
+    <version>1.5.6</version>
+    <group>templates_base</group>
+    
+    <description>
+        Kinda based on Twitter
+    </description>
+    
+    <notes><![CDATA[
+        Fonts (all sans):
+        • Body:          Raleway
+        • Table cells:   Roboto, Roboto Condensed
+        • Fixed width:   Ubuntu Mono
+        • Headings:      Oswald
+    ]]></notes>
+    
+    <tags>responsive, facebook clone, wordpress clone, mobile, desktop, multpile columns</tags>
+    
+    <author>
+        <company>LAVA SoftWorks</company>
+        <name>Alejandro Caballero</name>
+        <email>lava.caballero@gmail.com</email>
+    </author>
+    
+    <website>https://bardcanvas.com/blue-network-template</website>
+    
+</template>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Categories subsystem</display_name>
+    <icon>fa-folder</icon>
+    <description>
+        Category tree maintenance
+    </description>
+
+    <admin>
+        <menu_items>
+            <admin_menu_caption>Categories</admin_menu_caption>
+        </menu_items>
+    </admin>
+    
+    <index>
+        <title>Categories</title>
+        <buttons>
+            <add>New</add>
+        </buttons>
+    </index>
+    
+    <record_nav>
+        <placeholder>Search by id, slug, title or description</placeholder>
+        <columns>
+            <path>
+                <caption>Parent</caption>
+                <layout xnowrap="true" />
+                <order_asc  id="1">Order by parent + category title ascending</order_asc>
+                <order_desc id="2">Order by parent + category title descending</order_desc>
+            </path>
+            <title>
+                <caption>Category</caption>
+                <order_asc  id="3">Order by category title ascending</order_asc>
+                <order_desc id="4">Order by category title descending</order_desc>
+            </title>
+            <slug>
+                <caption>Slug</caption>
+            </slug>
+            <description>
+                <caption>Details</caption>
+                <empty>No description</empty>
+            </description>
+            <visibility>
+                <caption>Visibility</caption>
+                <layout xnowrap="true" />
+                <order_asc  id="5">Order by visibility + category title ascending</order_asc>
+                <order_desc id="6">Order by visibility + category title descending</order_desc>
+            </visibility>
+            <min_level>
+                <caption>Req level</caption>
+                <layout xnowrap="true" />
+                <order_asc  id="7">Order by required level + category title ascending</order_asc>
+                <order_desc id="8">Order by required level + category title descending</order_desc>
+            </min_level>
+        </columns>
+        <actions>
+            <edit>Edit</edit>
+            <delete>Delete</delete>
+            <copy>Copy</copy>
+        </actions>
+    </record_nav>
+    
+    <form>
+        <add_title>New category</add_title>
+        <edit_title>Editing category</edit_title>
+        <fields>
+            <title>
+                <caption>Title</caption>
+                <info><![CDATA[
+                    The name of the category. Must be unique.
+                ]]></info>
+            </title>
+            <slug>
+                <caption>Slug</caption>
+                <info><![CDATA[
+                    URL handler for the category. It must be made of lowercased letters,
+                    numbers, hyphens and underscores.
+                ]]></info>
+            </slug>
+            <description>
+                <caption>Description</caption>
+                <info><![CDATA[
+                    Short description of the category. It will be displayed as needed. Text only.
+                ]]></info>
+            </description>
+            <visibility>
+                <caption>Visibility</caption>
+                <options>
+                    <public>
+                        <caption>Public</caption>
+                        <info><![CDATA[
+                            Everyone, registered or not, will see items in this category.
+                        ]]></info>
+                    </public>
+                    <users>
+                        <caption>Only registered users</caption>
+                        <info><![CDATA[
+                            Only registered users with an open session will see items in this category.
+                        ]]></info>
+                    </users>
+                    <level_based>
+                        <caption>By user level</caption>
+                        <info><![CDATA[
+                            Only users with a minimum level will see items in this category.
+                        ]]></info>
+                    </level_based>
+                </options>
+            </visibility>
+            <min_level>
+                <caption>Minimum Level:</caption>
+                <info><![CDATA[
+                    Select the minimum user level that will access this category.
+                    All users from the selected level an up will apply.
+                ]]></info>
+            </min_level>
+            <parent_category>
+                <caption>Parent category</caption>
+                <info><![CDATA[
+                    If you want to make a category tree, use this selector to
+                    specify the parent for this category.
+                ]]></info>
+                <none>None</none>
+            </parent_category>
+        </fields>
+    </form>
+    
+    <left_sidebar>
+        <group_caption>Categories</group_caption>
+    </left_sidebar>
+    
+    <widgets>
+        <listing>
+            <title>Categories Listing</title>
+            <info>Adaptive list of available categories</info>
+            <editable_specs>
+                <specs key="cache_ttl">
+                    <title>Cache TTL</title>
+                    <description><![CDATA[
+                        Time to live (in hours) for the listing cache.<br>
+                        Default: <code>0</code> (cache disabled).
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+                <specs key="cache_version">
+                    <title>Cache version</title>
+                    <description><![CDATA[
+                        Version of the cache. If you want to refresh it, increment it by 1.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+                <specs key="public_categories_only">
+                    <title>Public categories only</title>
+                    <description><![CDATA[
+                        If enabled, all categories for specific levels will be skipped.
+                    ]]></description>
+                    <type>boolean</type>
+                </specs>
+                <specs key="max_branch_level">
+                    <title>Max branch level</title>
+                    <description><![CDATA[
+                        By default, category subtrees are rendered entirely.
+                        If you want to limit branches to a certain level, specify it here.
+                    ]]></description>
+                    <type>number</type>
+                </specs>
+            </editable_specs>
+        </listing>
+    </widgets>
+    
+    <messages>
+        <missing>
+            <id>Category id missing</id>
+            <title>Please specify a title for the category</title>
+            <slug>Please specify a slug for the category</slug>
+            <visibility>Please specify the visibility for the category.</visibility>
+        </missing>
+        <invalid>
+            <visibility>The visibility you specified is invalid.</visibility>
+            <min_level>The specified minimum level for visibility is invalid.</min_level>
+            <parent_category>The parent category can't be found.</parent_category>
+            <slug>The slug you specified contains invalid characters. Please use only lowercased letters, numbers, hyphens and underscores.</slug>
+        </invalid>
+        <self_parenting_not_allowed>A category can't be parent of itself.</self_parenting_not_allowed>
+        <slug_already_used>The slug you specified is already used. Please specify another.</slug_already_used>
+        <category_not_found>The category you specified wasn't found.</category_not_found>
+        <delete_confirmation><![CDATA[
+            Important: all items tied to this category or its children categories
+            will be taken back to the default category.
+            This may take some time, and once started it can't be undone.
+             
+            Do you want to continue?
+        ]]></delete_confirmation>
+        <cannot_delete_default>The default category cannot be deleted.</cannot_delete_default>
+        <category_deleted><![CDATA[
+            Category {$name} successfully deleted. {$children} subcategories deleted.
+            {$items} items moved to default category.
+        ]]></category_deleted>
+    </messages>
+    
+</language>

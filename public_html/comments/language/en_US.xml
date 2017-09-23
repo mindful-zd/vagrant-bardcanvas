@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Comments subsystem</display_name>
+    <icon>fa-comments-o</icon>
+    <description>
+        Comments for posts
+    </description>
+    
+    <leave_a_comment>Leave a comment</leave_a_comment>
+    
+    <form>
+        <edit>Editing comment #{$id} on "{$post_title}"</edit>
+        <fields>
+            <name>
+                <caption>Your name (required)</caption>
+            </name>
+            <email>
+                <caption>Your email (required)</caption>
+            </email>
+            <author_url>
+                <caption>Your website URL (optional):</caption>
+            </author_url>
+            <save>
+                <caption>Save your details in cookies (only on this browser)</caption>
+            </save>
+        </fields>
+    </form>
+    
+    <extenders>
+        <search_by_tag_builder>
+            <collection_heading>Comments</collection_heading>
+        </search_by_tag_builder>
+    </extenders>
+    
+    <list>
+        <title>{$amount} comments</title>
+        <post_comment>Send a comment</post_comment>
+        <reply_comment>Reply comment</reply_comment>
+        <quote_comment>Quote comment</quote_comment>
+    </list>
+    
+    <index>
+        <title>Comments</title>
+    </index>
+    
+    <status_labels>
+        <published>Published</published>
+        <reviewing>On review</reviewing>
+        <rejected>Rejected</rejected>
+        <spam>Flagged as Spam</spam>
+        <hidden>Hidden</hidden>
+        <trashed>Trashed</trashed>
+    </status_labels>
+    
+    <record_nav>
+        <menu_caption>Comments</menu_caption>
+        <columns>
+            <sent_date>
+                <layout xnowrap="true" />
+                <caption>Sent</caption>
+                <order_asc  id="1">Order by sent date ascending</order_asc>
+                <order_desc id="2">Order by sent date descending</order_desc>
+            </sent_date>
+            <sent_by>
+                <caption>Sent by</caption>
+                <order_asc  id="3">Order by author name ascending</order_asc>
+                <order_desc id="4">Order by author name descending</order_desc>
+            </sent_by>
+            <status>
+                <caption>Status</caption>
+            </status>
+            <details>
+                <caption>Details</caption>
+                <replies>{$replies} replies</replies>
+            </details>
+            <in_reply_to>
+                <caption>In reply to</caption>
+            </in_reply_to>
+            <sent_from>
+                <caption>Sent from</caption>
+            </sent_from>
+        </columns>
+        <actions>
+            <preview>Preview</preview>
+            <approve>Approve</approve>
+            <reject>Reject</reject>
+            <reply>Reply</reply>
+            <quote>Quote</quote>
+            <edit>Edit</edit>
+            <trash>Trash</trash>
+            <spam>Spam</spam>
+            <untrash_for_review>Untrash for review</untrash_for_review>
+        </actions>
+        <filters>
+            <from_everyone>By everyone</from_everyone>
+            <mine>Mine</mine>
+            <from_user>By {$user}</from_user>
+            <any_status>All</any_status>
+        </filters>
+    </record_nav>
+    
+    <messages>
+        <untrash_for_review_confirmation><![CDATA[
+            The comment will be taken out and will be flagged for reviewing
+            without sending any notification, then the editing mode will be launched,
+            but if you cancel the edition, the comment wont be taken back to the trash can.
+             
+            Do you want to continue?
+        ]]></untrash_for_review_confirmation>
+        <pending>There are {$amount} comments flagged for review. Click here to see them.</pending>
+        <empty_post_id>No post id has been specified</empty_post_id>
+        <post_not_found>The post you're trying to comment doesn't exist</post_not_found>
+        <post_unavailable>The post you're trying to comment isn't available</post_unavailable>
+        <unable_to_comment>You can't send comments to this post</unable_to_comment>
+        <empty_message>Please type a comment</empty_message>
+        <message_cannot_be_empty>The comment cannot be empty</message_cannot_be_empty>
+        <comment_cannot_be_edited>
+            <with_timing><![CDATA[
+                Sorry, but you can't change the comment for any of the next reasons:
+                • You're not a registered user
+                • The time you have to edit has been expired
+                • The comment has been replied
+                • You're not the author
+                • You don't have the privileges to do it
+            ]]></with_timing>
+            <without_timing><![CDATA[
+                Sorry, but you can't change the comment for any of the next reasons:
+                • You're not a registered user
+                • The comment has been replied
+                • You're not the author
+                • You don't have the privileges to do it
+            ]]></without_timing>
+        </comment_cannot_be_edited>
+        <empty_name>Please type your name/alias</empty_name>
+        <invalid_email>Please type a valid email</invalid_email>
+        <invalid_captcha>Invalid captcha input. Please try again.</invalid_captcha>
+        <already_sent>You already sent that comment within the last minutes.</already_sent>
+        <sending_too_fast>You're sending comments too fast. Please wait {$time}.</sending_too_fast>
+        <parent_not_found>The parent comment can't be found. It should have been deleted.</parent_not_found>
+        <missing_comment_id>You didn't specify a comment id</missing_comment_id>
+        <comment_not_found>The comment you specified wasn't found</comment_not_found>
+        <links_exceeded><![CDATA[
+            Your comment has links that need to be reviewed.
+            It will be saved but it wont be publicly visible until a mod/admin
+            approves it or rejects it.<br>
+            Please be patient and wait for a response,
+            it will be attended as soon as possible.
+        ]]></links_exceeded>
+        <toolbox>
+            <invalid_action>The provided action is invalid</invalid_action>
+            <invalid_status>The status flag you provided is invalid</invalid_status>
+            <action_not_allowed>Sorry, but your privileges aren't enough to carry on this action</action_not_allowed>
+            <published_ok><![CDATA[
+                Comment #{$id} by {$author} has been published. A notification has been sent to them.<br>
+                <a href="{$link}">Click here to check it.</a>
+            ]]></published_ok>
+            <rejected_ok><![CDATA[
+                Comment #{$id} by {$author} has been rejected. A notification has been sent to them.<br>
+                <a href="{$link}">Click here to check it.</a>
+            ]]></rejected_ok>
+            <deleted_from_others><![CDATA[
+                Comment #{$id} by {$author} has been sent to the trash can. A notification has been sent to them.
+            ]]></deleted_from_others>
+            <spammed_ok><![CDATA[
+                Comment #{$id} by {$author} has been flagged as spam.
+                A notification has been sent to the moderators.<br>
+                <a class="critical">
+                    <span class="fa fa-warning"></span>
+                    <b>Important:</b> any abuse of this tool will be sanctioned.
+                </a>
+            ]]></spammed_ok>
+            <spammed_for_author><![CDATA[
+                Your comment <a href="{$link}">#{$id}</a> on the post titled
+                <a class="greengo">«{$post_title}»</a>
+                has been flagged as spam/unwanted by <a class="alternate">{$reporter}</a>.<br>
+                The comment has been hidden from public view and a notification
+                has been sent to moderators.
+                Once the review process ends, the message may be taken back
+                or trashed with or without further notifications to you.<br>
+                If you feel this is a mistake or an abuse, please contact us.
+            ]]></spammed_for_author>
+        </toolbox>
+        <previewing>Previewing comment #{$id} on post "{$post_title}"</previewing>
+        <replying>Replying to comment #{$id} on post "{$post_title}"</replying>
+        <impersonation>
+            <user_name_exists>Sorry, but there's a registered user with a user name like yours. Please login or specify a different name.</user_name_exists>
+            <display_name_exists>Sorry, but there's a registered user with a display name like yours. Please login or specify a different name.</display_name_exists>
+            <email_exists>Sorry, but there's a registered user with the same email you're specifying. Please login or specify a different email.</email_exists>
+        </impersonation>
+        <comments_hidden>{$count} comments from {$author} have been hidden.</comments_hidden>
+        <comments_unhidden>{$count} comments from {$author} have been restored.</comments_unhidden>
+        <anonymous_cant_comment>Sorry, but you need to be registered with us and have an open session in order to leave comments</anonymous_cant_comment>
+        <register_to_comment><![CDATA[
+            You need to register an account if you want to leave comments on this or any other post!<br>
+            <a href="/accounts/register.php">Click here to register now!</a>
+        ]]></register_to_comment>
+    </messages>
+    
+    <notifications>
+        <published_ok><![CDATA[
+            Your comment on "{$post_title}" has been released by {$user} and it is now published.<br>
+            <a href="{$link}">Click here to check it.</a>
+        ]]></published_ok>
+        <rejected_ok><![CDATA[
+            Sorry, but your comment on "{$post_title}" has been rejected by {$user}.<br>
+            <a href="{$link}">Click here to check it.</a>
+        ]]></rejected_ok>
+        <deleted_by_others><![CDATA[
+            Your comment #{$id} on "{$post_title}" has been deleted by {$user}.
+        ]]></deleted_by_others>
+        <deleted_by_self><![CDATA[
+            {$author}'s comment #{$id} on "{$post_title}" has been deleted by {$user}.
+        ]]></deleted_by_self>
+        <spammed><![CDATA[
+            {$author}'s comment #{$id} on "{$post_title}" has been flagged as spam
+            by {$user}. Please go to the comments section and decide if it is
+            rejected or approved.
+        ]]></spammed>
+        <saved_ok><![CDATA[
+            Comment saved successfully. Current status is "{$status}".
+        ]]></saved_ok>
+        <saved_with_status_change><![CDATA[
+            The comment has been saved. Status has been changed from "{$old_status}" to "{$new_status}".
+        ]]></saved_with_status_change>
+    </notifications>
+    
+    <settings_data>
+        <title>Comments</title>
+        <specs key="avoid_anonymous">
+            <title>Avoid anonymous comments</title>
+            <description><![CDATA[
+                Enable this option if you want to allow commenting only to registered users
+                with an open session.<br>
+                <i class="fa fa-info-circle"></i>
+                <b>Note:</b> any module that extends the comments module and relies on interaction
+                with comments and commenters may be affected by this switch.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="items_per_page">
+            <title>Amount to show on single posts</title>
+            <description><![CDATA[
+                Amount of comments to show on a single post page. If there are more comments,
+                they will be splitted in pages.<br>
+                Defaults to <code>20</code>.
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>1</min>
+                <max>1000</max>
+            </options>
+        </specs>
+        <specs key="show_in_indexes">
+            <title>Show in post indexes</title>
+            <description><![CDATA[
+                When post indexes are built, comment excerpts will be rendered when this option is enabled.<br>
+                <span class="fa fa-info-circle"></span>
+                Note: enabling this option may add a small overhead to the database.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="items_per_index_entry">
+            <title>Amount per post on indexes</title>
+            <description><![CDATA[
+                Amount of comments to show per post entry on index pages.<br>
+                Defaults to <code>10</code>.
+            ]]></description>
+            <type>number</type>
+            <options>
+                <min>1</min>
+                <max>100</max>
+            </options>
+        </specs>
+        <specs key="disable_new_after">
+            <title>Disable posting new comments after:</title>
+            <description><![CDATA[
+                Specify the age in days a post should have so comment submissions/replies are blocked.<br>
+                Set to <code>0</code> allow comments always.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="flag_for_review_on_link_amount">
+            <title>Flag for review on link amount</title>
+            <description><![CDATA[
+                When the comment has the specified amount of links (or more), it will be flagged for review.<br>
+                Defaults to <code>2</code>.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="privileged_user_level">
+            <title>Privileged user level for automatic approval</title>
+            <description><![CDATA[
+                Users of this level and up will be excluded from the "flag for review on link amount" rule.
+                Defaults to <code>200</code> (moderator).<br>
+                <span class="fa fa-info-circle"></span>
+                Please check the user levels setting to get hints on defined user levels.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="repeated_interval">
+            <title>Duplicates check interval</title>
+            <description><![CDATA[
+                When a comment is submitted, check within the specified amount of minutes for a message
+                with the same content from the same user to avoid repeated messages.<br>
+                Defaults to <code>1</code>. Specify <code>0</code> to disable this check (not recommended).
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="sending_interval">
+            <title>Sending speed check</title>
+            <description><![CDATA[
+                Minimum amount of seconds to wait before a user can send a new comment.<br>
+                Defaults to <code>30</code>. Specify <code>0</code> to disable this check (not recommended).
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="max_indent_level">
+            <title>Maximum indent level</title>
+            <description><![CDATA[
+                When rendering the comments tree, all children above this level will be kept in the
+                specified value.<br>
+                Defaults to <code>5</code>.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="time_allowed_for_editing_after_submission">
+            <title>Time allowed for editing after submission</title>
+            <description><![CDATA[
+                Amount of minutes a user has to edit a comment once submitted.<br>
+                Set to <code>0</code> to disable comment editing non mods/admins.
+            ]]></description>
+            <type>number</type>
+        </specs>
+        <specs key="use_triklet_for_reporting">
+            <title>Use Triklet module for reporting comments?</title>
+            <description><![CDATA[
+                If the Triklet module is installed and enabled and this option is set to "Yes",
+                online users that hit the "report comment" link will be redirected to Triklet's New Ticket composition form
+                instead of going to the Contact form.
+            ]]></description>
+            <type>yes/no</type>
+        </specs>
+    </settings_data>
+    
+    <rss_feed_generator>
+        <title>{$website_name} comments feed</title>
+        <description>Latest comments on all posts published on {$website_name}</description>
+    </rss_feed_generator>
+    
+    <reporting>
+        <id_not_set>You didn't specify a valid comment ID to report.</id_not_set>
+        <not_found>The comment you specified wasn't found. It may be already deleted.</not_found>
+        <already_processed>The comment has already been processed and it was rejected. Theres' no need to report it again.</already_processed>
+        <in_review>The comment is already being reviewed. There's no need to report it again.</in_review>
+        <post_deleted><![CDATA[
+            Sorry, but the post where this comment was posted in has been deleted.
+            There's no need to report the comment since it is already removed and pending deletion.
+        ]]></post_deleted>
+        <subject>Spam/Inappropiate report for comment #{$comment_id} on {$post_author}'s post "{$post_title}"</subject>
+        <content><![CDATA[
+            <p><b>Describe why you think this comment should be reviewed:</b></p>
+            <ul><li><i>Type your reasons here</i></li></ul>
+            <hr>
+            Comment written by {$comment_author} on {$date}:<br>
+            <a href='{$permalink}'>{$permalink}</a>
+            <blockquote>{$comment}</blockquote>
+        ]]></content>
+    </reporting>
+    
+    <accounts_nav_columns>
+        <comments>
+            <caption><![CDATA[ <span class="fa fa-comments-o fa-fw"></span> ]]></caption>
+            <layout xnowrap="true" xalign="right" />
+            <order_asc  id="comments_count_asc">Order by published comments count ascending</order_asc>
+            <order_desc id="comments_count_desc">Order by published comments count descending</order_desc>
+        </comments>
+        <principal_data><![CDATA[
+            <div class="media_bullet">
+                <span class="bullet fa fa-comments-o fa-fw"></span>
+                Last comment: [{$time}, {$status}] <a href="{$url}" target="_blank">{$title}</a>
+            </div>
+        ]]></principal_data>
+    </accounts_nav_columns>
+    
+    <gallery_addons>
+        <principal_data><![CDATA[
+            <div class="media_bullet">
+                <span class="bullet fa fa-comments-o fa-fw"></span>
+                {$author} [{$time}, {$status}] <a href="{$url}" target="_blank">{$title}</a>
+            </div>
+        ]]></principal_data>
+    </gallery_addons>
+    
+    <multi_actions>
+        <trash>Trash</trash>
+        <hide>Hide</hide>
+        <publish>Approve</publish>
+        <spam>Spam</spam>
+        <reject>Reject</reject>
+        <confirmation><![CDATA[
+            {$amount} elements will be changed to "{$new_flag}".
+             
+            • All those with the same flag will be ignored.
+            • All will be processed in parallel and will be removed from view.
+            • Don't navigate out of this page until all requests are fulfilled.
+            • Once finished, you'll be notified and the browser will be refreshed.
+            • This cannot be undone.
+             
+            Do you want to continue?
+        ]]></confirmation>
+        <none_selected>Selecciona al menos una entrada para lleva a cabo la acción elegida.</none_selected>
+        <done>Todas las solicitudes han sido procesadas. El navegador de registos se actualizará ahora.</done>
+    </multi_actions>
+    
+    <email_templates>
+        <blacklist_email_link><![CDATA[
+            <li><a href="{$url}"><b>Blacklist this email address</b></a> so no emails from us are sent to it.</li>
+        ]]></blacklist_email_link>
+        
+        <comment_added>
+            <for_author>
+                <subject>A comment has been submitted to your post titled "{$title}" on {$website_name}</subject>
+                <body><![CDATA[
+                    <p>Greetings, {$author}! {$comment_sender} has commented on your post
+                    <a href="{$post_link}">{$post_title}</a>:</p>
+                    
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p><b style="color: red;">Do not reply to this email!</b> Click on any of the next actions:</p>
+                    <ul>
+                        <li><a href="{$reply_url}"><b>Reply</b></a> to {$comment_sender}.</li>
+                        <li><a href="{$report_url}"><b>Report</b></a> as spam or inappropiate.</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                        {$blacklist_email_link}
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_author>
+            <for_mods>
+                <subject>[{$website_name}/Moderators] Comment submitted to {$author}'s post "{$title}"</subject>
+                <body><![CDATA[
+                    <p>{$comment_sender} has commented on {$author}'s post
+                    <a href="{$post_link}">{$post_title}</a>:</p>
+                    
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p>Available mod/admin actions:</p>
+                    <ul>
+                        <li>Add a <a href="{$reply_url}"><b>reply</b></a> to the comment.</li>
+                        <li><a href="{$flag_url}"><b>Flag</b></a> as spam or inappropiate.</li>
+                        <li><a href="{$reject_url}"><b style="color: maroon;">Reject</b></a> the comment.</li>
+                        <li><a href="{$trash_url}"><b style="color: maroon;">Delete it</b></a> (send it to the trash can).</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_mods>
+            <for_review>
+                <subject>[{$website_name}/Moderators] Please review the comment submitted to {$author}'s post "{$title}"</subject>
+                <body><![CDATA[
+                    <p>{$comment_sender} has commented on {$author}'s post
+                    <a href="{$post_link}">{$post_title}</a>, but the comment was automatically
+                    flagged for review:</p>
+                    
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p>Available mod/admin actions:</p>
+                    <ul>
+                        <li><a href="{$approve_url}"><b style="color: green;">Approve</b></a> the comment.</li>
+                        <li><a href="{$reject_url}"><b style="color: maroon;">Reject</b></a> the comment.</li>
+                        <li><a href="{$trash_url}"><b style="color: maroon;">Delete it</b></a> (send it to the trash can).</li>
+                        <li>Add a <a href="{$reply_url}"><b>reply</b></a> to the comment.</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_review>
+        </comment_added>
+        <comment_replied>
+            <for_parent_author>
+                <subject>Someone has replied to your comment on {$post_author}'s post "{$post_title}"</subject>
+                <body><![CDATA[
+                    <p>Greetings, {$parent_author}! {$comment_sender} has replied to your comment on
+                    {$post_author} post <a href="{$post_link}">{$post_title}</a>:</p>
+                    
+                    <p>Excerpt of your comment:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$parent_excerpt}
+                    </blockquote>
+                    
+                    <p>{$comment_sender}'s reply:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p><b style="color: red;">Do not reply to this email!</b> Click on any of the next actions:</p>
+                    <ul>
+                        <li><a href="{$reply_url}"><b>Reply</b></a> to {$comment_sender}.</li>
+                        <li><a href="{$report_url}"><b>Report</b></a> as spam or inappropiate.</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                        {$blacklist_email_link}
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_parent_author>
+            <for_mods>
+                <subject>[{$website_name}/Moderators] Comment reply submitted on {$post_author}'s post "{$post_title}"</subject>
+                <body><![CDATA[
+                    <p>{$comment_sender} has replied to {$parent_author}'s comment on {$post_author}'s post
+                    <a href="{$post_link}">{$post_title}</a>.</p>
+                    
+                    <p>Excerpt of {$parent_author}'s comment:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$parent_excerpt}
+                    </blockquote>
+                    
+                    <p>{$comment_sender}'s reply:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p>Available mod/admin actions:</p>
+                    <ul>
+                        <li>Add a <a href="{$reply_url}"><b>reply</b></a> to the comment.</li>
+                        <li><a href="{$flag_url}"><b>Flag</b></a> as spam or inappropiate.</li>
+                        <li><a href="{$reject_url}"><b style="color: maroon;">Reject</b></a> the comment.</li>
+                        <li><a href="{$trash_url}"><b style="color: maroon;">Delete it</b></a> (send it to the trash can).</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_mods>
+            <for_review>
+                <subject>[{$website_name}/Moderators] Please review the reply submitted on {$post_author}'s post "{$post_title}"</subject>
+                <body><![CDATA[
+                    <p>{$comment_sender} has replied to {$parent_author}'s comment on {$post_author}'s post
+                    <a href="{$post_link}">{$post_title}</a>, but the comment was automatically
+                    flagged for review.</p>
+                    
+                    <p>Excerpt of {$parent_author}'s comment:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$parent_excerpt}
+                    </blockquote>
+                    
+                    <p>{$comment_sender}'s reply:</p>
+                    <blockquote style="background-color: whitesmoke; color: black; border-left: 5px solid silver; padding: 10px;">
+                        {$comment}
+                    </blockquote>
+                    
+                    <p><i>Note: actual content may differ due to email limitations.</i></p>
+                    
+                    <p>Available mod/admin actions:</p>
+                    <ul>
+                        <li><a href="{$approve_url}"><b style="color: green;">Approve</b></a> the comment.</li>
+                        <li><a href="{$reject_url}"><b style="color: maroon;">Reject</b></a> the comment.</li>
+                        <li><a href="{$trash_url}"><b style="color: maroon;">Delete it</b></a> (send it to the trash can).</li>
+                        <li>Add a <a href="{$reply_url}"><b>reply</b></a> to the comment.</li>
+                        <li><a href="{$preferences}"><b>Edit your preferences</b></a> to disable these notifications.</li>
+                    </ul>
+                    
+                    <p>Regards,<br>
+                    {$website_name}</p>
+                ]]></body>
+            </for_review>
+        </comment_replied>
+    </email_templates>
+    
+    <engine_prefs>
+        <title>Comment notifications</title>
+        
+        <specs key="email_on_post_comments" selector_default="true">
+            <title>Email me on post comments</title>
+            <description><![CDATA[
+                Receive an email when someone else comments your post (it doesn't apply to replies)
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        <specs key="email_on_comment_replies" selector_default="true">
+            <title>Email me on comment replies</title>
+            <description><![CDATA[
+                Receive an email when someone else replies your comments
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+        
+        <!-- The next ones are for mods and up -->
+        <specs key="moderator_emails_for_comments" selector_default="true" min_account_level="200">
+            <title>Email me when new comments are added</title>
+            <description><![CDATA[
+                <span class="framed_content inlined state_highlight">
+                    <span class="fa fa-info-circle"></span>
+                    Mods/admins only
+                </span>
+                Receive an email with the comment and the context.
+                Applies to comments from everyone except your own.
+            ]]></description>
+            <type>boolean</type>
+        </specs>
+    </engine_prefs>
+    
+    <empty_trash>
+        <caption>Empty...</caption>
+        <confirmation><![CDATA[
+            Warning: emptying the comments trash may take several seconds.
+            Once started, the process can't be interrupted,
+            and it can't be undone.
+             
+            All records older than 7 days will be deleted.
+             
+            Do you want to continue?
+        ]]></confirmation>
+    </empty_trash>
+    
+</language>
